@@ -1,24 +1,22 @@
 import React from 'react';
 import Card from './Card';
-import Bdata from './Bdata';
 import './BookDetails.scss';
 
 
-function BookDetails(){
+function BookDetails(props){
     return(
         <>
         <h1 className= 'heading_style'>Books</h1>
-        {Bdata.map(function ncard(val){
+        {props.BookData.map(function ncard(val){
             return(
                 <Card
-                key={val.id}
-                imgsrc={val.imgsrc}
+                key={val.bookId}
+                imgsrc={val.imageURL}
                 authorName={val.authorName}
                 bookName={val.bookName}
-                price={val.price}
+                price={val.bookPrice}
+
                 />
-
-
             )
         })}
     </>
