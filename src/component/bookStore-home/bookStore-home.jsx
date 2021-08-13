@@ -23,12 +23,6 @@ function BookStoreHome(){
                         <img className="cart-img" src={cart} alt="cart"></img>
                     </div>
             </nav>{/*End of NavBar*/}
-          
-            {/*Start of Footer*/}
-            <footer className="footer-bar">
-                    <div className="footer-txt"><p>Copyright © 2020, Bookstore Private Limited. All Rights Reserved</p></div>
-            </footer>
-            
         </div>
         </>
     )
