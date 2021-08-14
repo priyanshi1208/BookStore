@@ -1,6 +1,6 @@
 .order-placed{
     width: 100%;
-    margin-top: -3%;
+    margin-top: -2%;
 }
 .congo-image{
     display: flex;
@@ -19,12 +19,12 @@
     color: #333232;
 }
 .order-content2{
-    margin-top: -15px;
+    margin-top: -4px;
     font-size: 15px;
     color: #333232;
 }
 .order-content3{
-    margin-top: -15px;
+    margin-top: -4px;
     font-size: 15px;
     color: #333232;
 }
@@ -67,4 +67,8 @@
     text-transform: uppercase;
     text-align: center;
     display: inline-block;
+}
+.ls-button{
+    text-decoration: none;
+    color: white;
 }
