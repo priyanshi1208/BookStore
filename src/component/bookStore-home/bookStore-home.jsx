@@ -1,10 +1,10 @@
 import React from 'react';
 import '../bookStore-home/bookStore-home.scss';
+import BookDetails from '../BookDetails/BookDetails';
 import logo from '../../images/education.svg';
 import search from '../../images/search.png';
 import cart from '../../images/supermarket.svg';
-import BookDetails from '../BookDetails/BookDetails';
-import Footer from './Footer';
+import Footer from '../footer/footer';
 import BookService from '../../service/StoreService';
 
 class BookStoreHome extends React.Component{
@@ -12,17 +12,17 @@ class BookStoreHome extends React.Component{
         super(props);
         this.state = {
             bookData : [],
-            cartNumber:'',
+            cartNumber:''
         };
         this.bookservice = new BookService();
     }
 
-    changeCartNumber = () => {
-        this.setState({cartNumber:1});
-    }
-
     componentDidMount(){
         this.getBookData();
+    }
+
+    changeCartNumber = () => {
+        this.setState({cartNumber:1})
     }
 
     getBookData = () => {
@@ -40,7 +40,7 @@ class BookStoreHome extends React.Component{
         return(
             <>
             <div>
-                <nav className="navigation-bar">
+            <nav className="navigation-bar">
                         <div className="bookstore-nav">
                             <img className="bookstore-img" src={logo} alt="logo"></img>
                             <div className="bookstore-text">Bookstore</div>
@@ -52,17 +52,19 @@ class BookStoreHome extends React.Component{
                         <div className="cart-nav">
                             <p className="cart-txt">Cart</p>
                             <img className="cart-img" src={cart} alt="cart"></img>
+                            {this.state.cartNumber}
                         </div>
                 </nav>{/*End of NavBar*/}
+            </div>
                 <div>
                     <BookDetails
                       BookData = {this.state.bookData}
+                      change = {this.changeCartNumber}
                     />
                 </div>
                 <div>
                     <Footer/>
                 </div>
-            </div>
             </>
         )
     }

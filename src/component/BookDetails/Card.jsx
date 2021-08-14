@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 
 function Card (props) {
 
-    const[cartItem,setCartItem] = useState('');
+    const{changeNumber} = props;
 
-    const setCart = () => {
-        setCartItem(1);
+    const handleStateChange = () => {
+        changeNumber();
     }
 
     return(
@@ -18,7 +18,7 @@ function Card (props) {
                     <span className='card_category'>{props.authorName}</span>
                     <h4 className='card_price'> ₹ {props.price}</h4>
                     <div className='button'>
-                    <button className='button-cart' onClick = {setCart}>Add To Cart</button>
+                    <button className='button-cart' onClick = {handleStateChange}>Add To Cart</button>
                     <button className='button-wishlist'>Wishlist</button>
                     </div>
                 </div>
