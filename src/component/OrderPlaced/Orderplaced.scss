@@ -1,0 +1,70 @@
+.order-placed{
+    width: 100%;
+    margin-top: -3%;
+}
+.congo-image{
+    display: flex;
+    justify-content: center;
+    padding-top: 4%;
+}
+.order-content{
+    margin-top: -10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.order-content1{
+    font-size: 15px;
+    color: #333232;
+}
+.order-content2{
+    margin-top: -15px;
+    font-size: 15px;
+    color: #333232;
+}
+.order-content3{
+    margin-top: -15px;
+    font-size: 15px;
+    color: #333232;
+}
+.order-table{
+    margin-left: 20%;
+    display: flex;
+    margin-top: 10px;
+}
+.rtable{
+    border-collapse: collapse;
+    width: 70%;
+    border:1px solid lightgray;
+}
+.th{
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #dcdcdc;
+    color: #333232;
+    font-weight: normal;
+    font-size: 12px;
+}
+.td{
+    padding:8px;
+    text-align: center;
+    border-right: 1px solid #dcdcdc;
+    color: #333232;
+    font-weight: normal;
+    font-size: 12px;
+}
+.shopping-button{
+    margin-top: 3%;
+    margin-bottom: 10px;
+    background-color: #3371b5;
+    border-radius: 3px;
+    margin-left: 43%;
+    opacity: 1;
+    width: 200px;
+    height: 35px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+}
