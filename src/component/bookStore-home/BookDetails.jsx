@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './Card';
-import './BookDetails.scss';
+import './bookStore-home.scss';
 
 
 function BookDetails(props){
