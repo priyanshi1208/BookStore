@@ -34,7 +34,7 @@ class OrderPlaced extends React.Component{
                     </table>
                 </div>
                 <div className="continue-shopping-button">
-                    <button className="shopping-button"><Link to="">CONTINUE SHOPPING</Link></button>
+                    <button className="shopping-button"><Link  className="ls-button" to="">CONTINUE SHOPPING</Link></button>
                 </div>
             </div>
             <div>
