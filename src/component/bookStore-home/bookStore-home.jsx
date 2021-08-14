@@ -10,7 +10,7 @@ class BookStoreHome extends React.Component{
         super(props);
         this.state = {
             bookData : [],
-            cartNumber:''
+            cartNumber:0
         };
         this.bookservice = new BookService();
     }

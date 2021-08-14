@@ -62,6 +62,20 @@
     display: flex;
 }
 
+.cart-number{
+    margin-left: -8px;
+    margin-top: 2px;
+    width: 13px;
+    height: 13px;
+    background: white;
+    color: #A03037;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 11px;
+  }
+
 .search-bar{
     margin-left: 5%;
     width: 36%;

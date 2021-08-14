@@ -18,7 +18,7 @@ function NavigationBar(props){
             <div className="cart-nav">
                 <p className="cart-txt">Cart</p>
                 <img className="cart-img" src={cart} alt="cart"></img>
-                {props.cartNumber}
+                <p className="cart-number">{props.cartNumber}</p>
             </div>  
         </nav>
     )
