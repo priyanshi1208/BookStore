@@ -3,6 +3,7 @@ import './NavigationBar.scss';
 import logo from '../../images/education.svg';
 import search from '../../images/search.png';
 import cart from '../../images/supermarket.svg';
+import { Link } from 'react-router-dom';
 
 function NavigationBar(props){
     return(
@@ -17,7 +18,9 @@ function NavigationBar(props){
             </div>
             <div className="cart-nav">
                 <p className="cart-txt">Cart</p>
-                <img className="cart-img" src={cart} alt="cart"></img>
+                <Link to="/cart" className="cart-img">
+                <img src={cart} alt="cart"></img>
+                </Link>
                 <p className="cart-number">{props.cartNumber}</p>
             </div>  
         </nav>
