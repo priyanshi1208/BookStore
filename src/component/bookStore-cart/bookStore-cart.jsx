@@ -23,7 +23,7 @@ class BookStoreCart extends React.Component{
     }
     render(){
         return(
-            <div>
+            <div className="myCart">
                 <section>
                     <NavigationBar/>
                 </section>

@@ -4,7 +4,7 @@ import '../bookStore-cart/CustomerForm.scss';
 function CustomerForm(props){
     return(
         <div className="main-container">
-            <h3>Customer Details</h3>
+            <h3 className="form-title">Customer Details</h3>
            <form className='form' action="#">
                <div className="form-container">
                    <div className="form-input">

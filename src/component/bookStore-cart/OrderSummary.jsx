@@ -4,7 +4,7 @@ function OrderSummary(props){
         <div className="cart">
                 <div className="cart-container">
                     <div className="book-container">
-                        <h4 className='summary-title'>Order Summary</h4>
+                        <div className='summary-title'>Order Summary</div>
                         <img className='book-cover' src="https://kbimages1-a.akamaihd.net/c2cddc29-ddd4-41d7-bb02-c89981b7c652/1200/1200/False/think-and-grow-rich-1937-original-masterpiece-by-napoleon-hill-2015-02-05.jpg" alt="" />
                     </div>
                     <div className='book-info'>
@@ -14,7 +14,7 @@ function OrderSummary(props){
                     </div>
                 </div>
                 <div className="button-container">
-                    <button className="place-order" onClick={(e)=>props.togglePanel(e)}>CHECKOUT</button>
+                    <button className="place-order" onClick={event =>  window.location.href='/summary'} >CHECKOUT</button>
                 </div>
             </div>
     );
