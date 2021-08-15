@@ -1,11 +1,22 @@
-import React from 'react';
+
 import './NavigationBar.scss';
 import logo from '../../images/education.svg';
 import search from '../../images/search.png';
 import cart from '../../images/supermarket.svg';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function NavigationBar(props){
+
+    const[cartNumber,setNumber] = useState();
+
+    useEffect(() => {
+        setCart();
+    })
+    
+    const setCart = () => {
+        setNumber(localStorage.getItem("number") || 0)
+    }
     return(
             <nav className="navigation-bar">
             <div className="bookstore-nav">
@@ -21,7 +32,7 @@ function NavigationBar(props){
                 <Link to="/cart" className="cart-img">
                 <img src={cart} alt="cart"></img>
                 </Link>
-                <p className="cart-number">{props.cartNumber}</p>
+                <p className="cart-number">{cartNumber}</p>
             </div>  
         </nav>
     )

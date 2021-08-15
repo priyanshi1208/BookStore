@@ -6,7 +6,13 @@ import NavigationBar from '../navigationBar/NavigationBar';
 import { Link } from 'react-router-dom';
 
 class OrderPlaced extends React.Component{
+
+    removeLocalStorage = () => {
+        localStorage.removeItem("number");
+    }
+
     render(){
+
         return(
             <>
             <NavigationBar/>
@@ -34,7 +40,7 @@ class OrderPlaced extends React.Component{
                     </table>
                 </div>
                 <div className="continue-shopping-button">
-                    <button className="shopping-button"><Link  className="ls-button" to="">CONTINUE SHOPPING</Link></button>
+                    <button className="shopping-button" ><Link onClick={this.removeLocalStorage()} className="ls-button" to="">CONTINUE SHOPPING</Link></button>
                 </div>
             </div>
             <div>

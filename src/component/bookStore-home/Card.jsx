@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 
 
 function Card (props) {
-
-    const{changeNumber} = props;
     const[text,setText] = useState("Add To Cart");
 
     const handleStateChange = () => {
-        
-        changeNumber();
+        localStorage.setItem("number",1);
+        window.location.reload();
         setText("Added");
     }
 
