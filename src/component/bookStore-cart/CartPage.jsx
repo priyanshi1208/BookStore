@@ -2,7 +2,8 @@ import React from 'react';
 import './CartPage.scss';
 function CartPage(props) {
         return(
-            <div className="cart">
+            <div className="main">
+                <div className="cart">
                 <div className="cart-container">
                     <div className="book-container">
                         <h4 className='cart-title'>My Cart(2)</h4>
@@ -26,6 +27,9 @@ function CartPage(props) {
                     <button className="place-order" onClick={(e)=>props.togglePanel(e)}>PLACE ORDER</button>
                 </div>
             </div>
+            </div>
+
+            
         );
     }
 

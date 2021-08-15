@@ -16,7 +16,7 @@ function OrderSummary(props){
                 <div className="button-container">
                     <button className="place-order" onClick={event =>  window.location.href='/summary'} >CHECKOUT</button>
                 </div>
-            </div>
+        </div>
     );
 }
 export default OrderSummary
