@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
-body{
-    font: normal normal medium 12px/15px Lato;
+.myCart{
+    height: 100%;
 }
 .cart{
     margin-left: 11%;
@@ -17,7 +17,7 @@ body{
     flex-direction: row;
     //margin-bottom: 80%;
 }
-.book-container{
+.Book-container{
     display: flex;
     flex-direction: column;
     padding-left: 15%;
