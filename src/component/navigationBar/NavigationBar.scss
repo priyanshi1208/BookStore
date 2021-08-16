@@ -6,6 +6,8 @@
     position: relative;
     display: flex;
     flex-direction: row;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0;
 }
 .bookstore-nav{
     display: flex;
