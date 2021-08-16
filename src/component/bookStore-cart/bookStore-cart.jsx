@@ -4,6 +4,7 @@ import NavigationBar from '../navigationBar/NavigationBar';
 import CustomerForm from './CustomerForm';
 import CartPage from './CartPage';
 import OrderSummary from './OrderSummary';
+import "./OrderSummary.scss";
 
 class BookStoreCart extends React.Component{
     constructor(props){
@@ -49,7 +50,7 @@ class BookStoreCart extends React.Component{
                 </section>
                 <section>
                     {this.state.openSummary?(<OrderSummary/>):
-                        <div className="cart compressible-container">
+                        <div className="order compressible-summary">
                             <h3>Order Summary</h3>
                         </div>
                     }
