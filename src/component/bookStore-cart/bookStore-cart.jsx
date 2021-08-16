@@ -11,7 +11,8 @@ class BookStoreCart extends React.Component{
         super(props);
         this.state={
             open:false,
-            openSummary:false
+            openSummary:false,
+            cartNumber:0
         }
         this.togglePanel=this.togglePanel.bind(this);
         this.togglePanelSummary=this.togglePanelSummary.bind(this);
@@ -22,11 +23,16 @@ class BookStoreCart extends React.Component{
     togglePanelSummary(e){
         this.setState({openSummary:!this.state.openSummary})
     }
+    componentDidMount(){
+        this.setState({cartNumber:localStorage.getItem("number")})
+    }
     render(){
         return(
             <div className="myCart">
                 <section>
-                    <NavigationBar/>
+                    <NavigationBar
+                    cartNumber = {this.state.cartNumber}
+                    />
                 </section>
                 <section>
                     <CartPage

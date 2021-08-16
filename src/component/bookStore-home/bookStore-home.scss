@@ -26,7 +26,7 @@
     margin-bottom: 40px;
     border: 1px solid rgba(143, 155, 160, 0.493);
     width: 18%;
-    //background-color: rgba(235, 237, 252, 0.555);
+    background-color: rgba(235, 237, 252, 0.555);
     float: left;
     border-radius: 5px;
     box-shadow: 0px 13px 10px -7px rgba(244, 248, 253, 0.877);
@@ -34,8 +34,6 @@
     flex-direction: column;
     margin:1rem;
     height: 300px;
-    
-    
 }
   .card_img{
     width: 32%;
@@ -48,7 +46,9 @@
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     padding: 16px 24px 24px 24px;
-     background-color: rgb(252, 252, 247); 
+    background-color: rgb(252, 252, 247); 
+    display: flex;
+    flex-direction: column;
   
   }
   .card_category{
@@ -65,9 +65,11 @@
   .card_title{
     margin-top: 5px;
     margin-bottom: 0px;
-    font-family: sans-serif;
     text-align: left;
-    font-weight: 200;
+    font: normal normal normal 14px/17px Lato;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
     
   }
   .button{
@@ -98,7 +100,7 @@
 
   .button-cart:focus{
     background: #3371BF;
-    width: 108px;
+    width: 190px;
   }
   .button-wishlist{
     border-radius: 2px;

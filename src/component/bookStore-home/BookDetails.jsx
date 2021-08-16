@@ -15,6 +15,7 @@ function BookDetails(props){
                 authorName={val.authorName}
                 bookName={val.bookName}
                 price={val.bookPrice}
+                changeNumber = {props.change}
                 />
             )
         })}
