@@ -9,7 +9,9 @@ function NavigationBar(props){
     return(
             <nav className="navigation-bar">
             <div className="bookstore-nav">
-                <img className="bookstore-img" src={logo} alt="logo"></img>
+                <Link to = "/" className="bookstore-img" >
+                   <img src={logo} alt="logo"></img>
+                </Link>
                 <div className="bookstore-text">Bookstore</div>
             </div>
             <div className="search-bar">
