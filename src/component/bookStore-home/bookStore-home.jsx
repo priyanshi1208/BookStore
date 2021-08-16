@@ -10,14 +10,19 @@ class BookStoreHome extends React.Component{
         super(props);
         this.state = {
             bookData : [],
+            cartNumber:0
         };
         this.bookservice = new BookService();
     }
 
     componentDidMount(){
         this.getBookData();
+        this.setState({cartNumber:localStorage.getItem("number") || 0})
     }
 
+    changeCartNumber = () => {
+        this.setState({cartNumber:localStorage.getItem("number") || 0})
+    }
     getBookData = () => {
         this.bookservice.getAllBooks()
         .then(responseDTO => {
@@ -33,12 +38,14 @@ class BookStoreHome extends React.Component{
         return(
             <>
             <div>
-                <NavigationBar
+                <NavigationBar 
+                cartNumber = {this.state.cartNumber}
                 />
             </div>
                 <div>
                     <BookDetails
                       BookData = {this.state.bookData}
+                      change = {this.changeCartNumber}
                     />
                 </div>
                 <div>

@@ -6,7 +6,15 @@ import NavigationBar from '../navigationBar/NavigationBar';
 import { Link } from 'react-router-dom';
 
 class OrderPlaced extends React.Component{
-
+    constructor(props){
+        super(props);
+        this.state = {
+            cartNumber:''
+        }
+    }
+    componentDidMount(){
+        this.setState({cartNumber:localStorage.getItem("number") || 0})
+    }
     removeLocalStorage = () => {
         localStorage.removeItem("number");
     }
@@ -15,7 +23,8 @@ class OrderPlaced extends React.Component{
 
         return(
             <>
-            <NavigationBar/>
+            <NavigationBar
+            cartNumber = {this.state.cartNumber}/>
             <div className="order-placed">
                 <div className="congo-image">
                     <img src={images} alt="Loading..."/>
