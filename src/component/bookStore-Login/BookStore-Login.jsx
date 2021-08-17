@@ -1,6 +1,6 @@
 import React from "react";
 import loginImg from "../../images/login.svg";
-import './BookStore-Style.scss';
+import './Login-Register.scss';
 
 class Login extends React.Component {
   constructor(props) {

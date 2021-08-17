@@ -8,7 +8,7 @@ function CustomerForm(props){
     return(
         <div className="main-container">
             <h3 className="form-title">Customer Details</h3>
-           <form className='form' action="#">
+           <form className='customerform' action="#">
                <div className="form-container">
                    <div className="form-input">
                         <div className="row">

@@ -2,6 +2,8 @@ import React from "react";
 import "./BookStore-Main.scss";
 import Login from './BookStore-Login';
 import Register from "./BookStore-Register";
+import FooterBar from "../footer/footer";
+import NavigationBar from "../navigationBar/NavigationBar";
 
 class Main extends React.Component {
   constructor(props) {
@@ -34,24 +36,37 @@ class Main extends React.Component {
     const current = isLogginActive ? "Register" : "Login";
     const currentActive = isLogginActive ? "login" : "register";
     return (
-      <div className="App">
-        <div className="login">
-          <div className="container" ref={ref => (this.container = ref)}>
-            {isLogginActive && (
-              <Login containerRef={ref => (this.current = ref)} />
-            )}
-            {!isLogginActive && (
-              <Register containerRef={ref => (this.current = ref)} />
-            )}
+      <section>
+        <section>
+          <NavigationBar/>
+        </section>
+        <section className="login-register">
+          <div className="bookstore">
+          <div className="login">
+            <div className="container" ref={ref => (this.container = ref)}>
+              {isLogginActive && (
+                <Login containerRef={ref => (this.current = ref)} />
+              )}
+              {!isLogginActive && (
+                <Register containerRef={ref => (this.current = ref)} />
+              )}
+            </div>
+            <RightSide
+              current={current}
+              currentActive={currentActive}
+              containerRef={ref => (this.rightSide = ref)}
+              onClick={this.changeState.bind(this)}
+            />
           </div>
-          <RightSide
-            current={current}
-            currentActive={currentActive}
-            containerRef={ref => (this.rightSide = ref)}
-            onClick={this.changeState.bind(this)}
-          />
         </div>
-      </div>
+        </section>
+        <section>
+        <div>
+          <FooterBar/>
+        </div>
+        </section>
+     </section>
+      
     );
   }
 }
