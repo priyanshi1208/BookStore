@@ -1,17 +1,16 @@
 import React from 'react';
 import Card from './Card';
-import Bdata from './Bdata';
-// import './BookDetails.scss';
 
 
-function BookDetails(){
+function BookDetails(props){
+    
     return(
         <>
         <div className="book_head">
             <div className="boot_item">
                 <span className="book_heading">Books</span>
                 <div className="book_count">
-                    <div className="count">({Bdata.length}Items)</div>
+                    <div className="count">({props.BookData.length}Items)</div>
                 </div>
             </div>
             <div className="book-sort">
@@ -26,14 +25,15 @@ function BookDetails(){
                 </div>
             </div>
         </div>
-        {Bdata.map(function ncard(val){
+        {props.BookData.map(function ncard(val){
             return(
                 <Card
-                key={val.id}
-                imgsrc={val.imgsrc}
+                key={val.bookID}
+                imgsrc={val.imageURL}
                 authorName={val.authorName}
                 bookName={val.bookName}
-                price={val.price}
+                price={val.bookPrice}
+                changeNumber = {props.change}
                 />
              )
         })}

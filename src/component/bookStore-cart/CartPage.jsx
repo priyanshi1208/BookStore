@@ -12,7 +12,7 @@ function CartPage(props) {
                     <div className='book-info'>
                         <h4 className='book-title'>Think And Grow Rich</h4>
                         <p className='author-name'>By Napolean Hill</p>
-                        <h4>₹ 1500</h4>
+                        <h4>Rs. 1500</h4>
                         <span className='controls'>
                             <div className="quantity">
                                  <button disabled={true}>-</button>
