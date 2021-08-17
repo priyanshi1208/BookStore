@@ -26,20 +26,19 @@ h3{
     padding-left: 5%;
 }
 .text-input{
-    width: 43.5%;
-    height: 45px;
+    width: 40%;
+    height:5%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #DCDCDC;
-    opacity: 1;
-    margin-left: 1.5%;
+    // border: 1px solid #DCDCDC;
+    // padding: 0px;
 }
 .textarea{
-    width: 88.6%;
-    height: 82px;
+    width: 81.5%;
+    background-color: red;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #DCDCDC;
-    opacity: 1;
-    margin-left: 1.4%;
+    // padding: 5px;
+    
 }
 .type-label{
     text-align: left;
@@ -64,7 +63,7 @@ h3{
     margin-left: 3%;
 }
 .row{
-    padding-left: 1.9%;
+    padding-left: 2.5%;
     display: flex;
     flex-direction: row;
     width: 100%;

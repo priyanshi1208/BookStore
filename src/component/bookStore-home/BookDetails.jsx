@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 import Bdata from './Bdata';
-import './BookDetails.scss';
+// import './BookDetails.scss';
 
 
 function BookDetails(){

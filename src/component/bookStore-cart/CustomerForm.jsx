@@ -1,7 +1,10 @@
 import React from 'react';
 import '../bookStore-cart/CustomerForm.scss';
-
+import {TextField} from '@material-ui/core';
+import { TextareaAutosize } from '@material-ui/core';
 function CustomerForm(props){
+    // let textAreaStyle={
+    // }
     return(
         <div className="main-container">
             <h3 className="form-title">Customer Details</h3>
@@ -9,19 +12,19 @@ function CustomerForm(props){
                <div className="form-container">
                    <div className="form-input">
                         <div className="row">
-                            <input className="text-input" type="text" placeholder="Name"></input>
-                            <input className="text-input" type="text" placeholder="Phone Number"></input>
+                            <TextField className="text-input"  label="Name" variant='outlined' style={{marginRight: '1.5%'}} size='medium'/>
+                            <TextField className="text-input" type="text" variant='outlined' label="Phone Number" />
                         </div>
                         <div className="row">
-                            <input className="text-input" type="text" placeholder="Pincode"></input>
-                            <input className="text-input" type="text" placeholder="Locality"></input>
+                            <TextField className="text-input" type="text" label="Pincode" variant='outlined' style={{ marginRight: '1.5%'}}/>
+                            <TextField className="text-input" type="text" label="Locality" variant='outlined'/>
                         </div>
                         <div className="row">
-                            <textarea className="textarea" placeholder="Address"></textarea>
+                            <TextField className="textarea" label="Address" variant='outlined' multiline={true} maxRows={5} />
                         </div>
                         <div className="row">
-                            <input className="text-input" type="text" placeholder="city/town"></input>
-                            <input className="text-input" type="text" placeholder="Landmark"></input>
+                            <TextField className="text-input" type="text" label="city/town" variant='outlined' style={{ marginRight: '1.5%'}}/>
+                            <TextField className="text-input" type="text" label="Landmark" variant='outlined'/>
                         </div>
                         <div className="radio-row">
                             <label className="type-label">Type</label><br/>
