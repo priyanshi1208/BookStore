@@ -15,4 +15,11 @@ export default class StoreService{
     loginUser(loginDetails){
         return AxiosService.postService(`${this.baseUrl}user/login`,loginDetails)
     }
+    getUserById(UserId){
+        return AxiosService.getService(`${this.baseUrl}user/get/${UserId}`);
+    }
+
+    updateUser(userData){
+        return AxiosService.putService(`${this.baseUrl}user/update/${userData.id}`,userData)
+    }
 }
