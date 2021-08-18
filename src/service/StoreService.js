@@ -11,4 +11,11 @@ export default class StoreService{
     addUser(userObject){
         return AxiosService.postService(`${this.baseUrl}user/register`,userObject);
     }
+    getUserById(UserId){
+        return AxiosService.getService(`${this.baseUrl}user/get/${UserId}`);
+    }
+
+    updateUser(userData){
+        return AxiosService.putService(`${this.baseUrl}user/update/${userData.id}`,userData)
+    }
 }
