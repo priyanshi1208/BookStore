@@ -8,10 +8,16 @@ function Card (props) {
 
 
     const handleStateChange = () => {
-        localStorage.setItem("number",1);
-        changeNumber();
-        setText("Added To Bag");
-        setWishlistButton(false);
+        let userId = localStorage.getItem("userId");
+        if(userId){
+            localStorage.setItem("number",1);
+            changeNumber();
+            setText("Added To Bag");
+            setWishlistButton(false);
+        }
+        else{
+            window.location.replace('/login')
+        }
     }
 
     return(

@@ -7,6 +7,7 @@ class Login extends React.Component {
     super(props);
   }
 
+
   render() {
     return (
       <div className="base-container" ref={this.props.containerRef}>
@@ -17,12 +18,14 @@ class Login extends React.Component {
           </div>
           <div className="form">
             <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input type="text" name="username" placeholder="username" />
+              <label htmlFor="email">Email</label>
+              <input type="text" name="email" onChange={(e)=>{this.handleEmailChange(e)}} placeholder="Email Address" />
+              <error-output className="email-error" htmlFor="error">{this.state.emailError}</error-output>
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="password" />
+              <input type="password" name="password" onChange={(e) => {this.handlePasswordChange(e)}} placeholder="password" />
+              <error-output className="password-error" htmlFor="error">{this.state.passwordError}</error-output>
             </div>
           </div>
         </div>

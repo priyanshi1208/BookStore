@@ -31,7 +31,8 @@ class Register extends React.Component {
       })
     }
     else{
-      this.setState({textError:""});
+      this.setState({textError:"",
+      errorMessage:false});
     }
   }
   handleNumberChange=(e)=>{
@@ -46,22 +47,24 @@ class Register extends React.Component {
       })
     }
     else{
-      this.setState({numberError:""});
+      this.setState({numberError:"",
+      errorMessage:false});
     }
   }
   handleEmailChange=(e)=>{
     this.setState({
       [e.target.name]:e.target.value
     });
-    let emailRegex=RegExp("\\d{2}\\d{10}");
+    let emailRegex=RegExp("^[A-Za-z0-9-\\+]+(\\.[A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
     if(!emailRegex.test(e.target.value)){
       this.setState({
-      emailError:"Invalid Number Format",
+      emailError:"Invalid Email Format",
       errorMessage:true
       })
     }
     else{
-      this.setState({emailError:""});
+      this.setState({emailError:"",
+      errorMessage:false});
     }
   }
   handlePasswordChange=(e)=>{
@@ -71,36 +74,36 @@ class Register extends React.Component {
     let passwordRegex=RegExp("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&*-+=()]).{8,}$");
     if(!passwordRegex.test(e.target.value)){
       this.setState({
-      passwordError:"Invalid Number Format",
+      passwordError:"Invalid Password",
       errorMessage:true
       })
     }
     else{
-      this.setState({passwordError:""});
+      this.setState({passwordError:"",
+      errorMessage:false});
     }
   }
   save=async(e)=>{
+    console.log("Register button Clicked");
     e.preventDefault();
     if(this.state.errorMessage===true){
         window.alert("Please enter valid data");
     }
     else{
       let userObject={
-          id:this.state.id,
-          name:this.state.name,
-          phoneNumber:this.state.number,
+          name:this.state.username,
+          emailId:this.state.email,
           password:this.state.password,
-          email:this.state.email
+          phoneNumber:this.state.phoneNumber
       }
       new StoreService().addUser(userObject)
       .then(response=>{
       console.log("Data Added Successfully"+JSON.stringify(response.data));
-      window.alert("Welcome to BookStore");
+      window.alert("User Registered Successfully");
       })
       .catch(error=>{
       console.log("Error in Adding data"+JSON.stringify(error));
       })
-    window.location.replace('/cart');
     }
   }
 
@@ -112,7 +115,7 @@ class Register extends React.Component {
           <div className="image">
             <img src={loginImg} />
           </div>
-          <form className="form" onSubmit={(e)=>{this.save(e)}}>
+          <form className="form">
             <div className="form-group">
               <label htmlFor="username">Name</label>
               <input type="text" name="username"  onChange={(e)=>{this.handleNameChange(e)}} placeholder="Username" />
@@ -136,7 +139,7 @@ class Register extends React.Component {
           </form>
         </div>
         <div className="footer">
-          <button type="submit" className="btn">
+          <button type="submit" onClick={(e)=>{this.save(e)}} className="btn">
             Register
           </button>
         </div>

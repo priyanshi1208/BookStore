@@ -8,9 +8,7 @@ export default class StoreService{
     getAllBooks() {
         return AxiosService.getService(`${this.baseUrl}bookstore/get`);
     }
-    addUser(){
-        return AxiosService.postService(`${this.baseUrl}user/register`);
+    addUser(userObject){
+        return AxiosService.postService(`${this.baseUrl}user/register`,userObject);
     }
-
-
 }

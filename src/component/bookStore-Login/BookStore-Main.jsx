@@ -2,8 +2,6 @@ import React from "react";
 import "./BookStore-Main.scss";
 import Login from './BookStore-Login';
 import Register from "./BookStore-Register";
-import FooterBar from "../footer/footer";
-import NavigationBar from "../navigationBar/NavigationBar";
 
 class Main extends React.Component {
   constructor(props) {
@@ -37,9 +35,6 @@ class Main extends React.Component {
     const currentActive = isLogginActive ? "login" : "register";
     return (
       <section>
-        <section>
-          <NavigationBar/>
-        </section>
         <section className="login-register">
           <div className="bookstore">
           <div className="login">
@@ -61,9 +56,6 @@ class Main extends React.Component {
         </div>
         </section>
         <section>
-        <div>
-          <FooterBar/>
-        </div>
         </section>
      </section>
       
