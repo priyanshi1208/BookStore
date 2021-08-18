@@ -1,12 +1,76 @@
 import React from "react";
 import loginImg from "../../images/login.svg";
 import './Login-Register.scss';
+import StoreService from "../../service/StoreService";
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      email:'',
+      password:'',
+      emailError:'',
+      passwordError:'',
+      isError:''
+    }
   }
 
+  handleEmailChange = (e) => {
+    this.setState({
+      [e.target.name]:e.target.value
+    });
+    let emailRegex=RegExp("^[A-Za-z0-9-\\+]+(\\.[A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+    if(!emailRegex.test(e.target.value)){
+      this.setState({
+      emailError:"Invalid Email Format",
+      isError:true
+      })
+    }
+    else{
+      this.setState({emailError:"",
+      isError:false});
+    }
+  }
+
+  handlePasswordChange = (e) => {
+    this.setState({
+      [e.target.name]:e.target.value
+    });
+    let passwordRegex=RegExp("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&*-+=()]).{8,}$");
+    if(!passwordRegex.test(e.target.value)){
+      this.setState({
+      passwordError:"Invalid Password",
+      isError:true
+      })
+    }
+    else{
+      this.setState({passwordError:"",
+      isError:false});
+    }
+  }
+
+  login = (e) => {
+    if(this.state.isError===true){
+      window.alert("Please enter valid data");
+  }
+  else{
+    let userDetails={
+        emailId:this.state.email,
+        password:this.state.password
+    }
+    new StoreService().loginUser(userDetails)
+    .then(response=>{
+      let data = response.data;
+      localStorage.setItem("userId",data.data);
+      console.log(data.data);
+      window.location.replace('/');
+    })
+    .catch(error=>{
+    window.alert("User Does Not Exist");
+    console.log("Error While Login"+JSON.stringify(error));
+    })
+  }
+  }
 
   render() {
     return (
@@ -30,7 +94,7 @@ class Login extends React.Component {
           </div>
         </div>
         <div className="footer">
-          <button type="button" className="btn">
+          <button type="button" onClick={(e) => {this.login(e)}} className="btn">
             Login
           </button>
         </div>

@@ -84,7 +84,6 @@ class Register extends React.Component {
     }
   }
   save=async(e)=>{
-    console.log("Register button Clicked");
     e.preventDefault();
     if(this.state.errorMessage===true){
         window.alert("Please enter valid data");

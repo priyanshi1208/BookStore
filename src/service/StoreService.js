@@ -11,4 +11,8 @@ export default class StoreService{
     addUser(userObject){
         return AxiosService.postService(`${this.baseUrl}user/register`,userObject);
     }
+
+    loginUser(loginDetails){
+        return AxiosService.postService(`${this.baseUrl}user/login`,loginDetails)
+    }
 }
