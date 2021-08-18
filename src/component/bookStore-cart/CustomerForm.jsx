@@ -15,7 +15,11 @@ class CustomerForm extends React.Component{
             landmark:'',
             town:'',
             type:'',
-            address:''
+            address:'',
+            errorMessage:false,
+            textError:"",
+            numberError:"",
+            pinCodeError:""
         }
     }
     componentDidMount = () => {
@@ -30,6 +34,54 @@ class CustomerForm extends React.Component{
         //     })
         // }
     }
+
+    handleNameChange=(e)=>{
+        this.setState({
+            [e.target.name]:e.target.value
+        });
+        let nameRegex=RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$");
+        if(!nameRegex.test(e.target.value)){
+          this.setState({
+            textError:"Invalid Name Format",
+            errorMessage:true
+          })
+        }
+        else{
+          this.setState({textError:""});
+        }
+      }
+
+      handleNumberChange=(e)=>{
+        this.setState({
+            [e.target.phoneNumber]:e.target.value
+        });
+        let phoneNumberRegex=RegExp("[+]{0,1}[0-9]{1,}\\s{0,1}[1-9]{1}[0-9]{9}$");
+        if(!phoneNumberRegex.test(e.target.value)){
+          this.setState({
+            numberError:"Invalid Phone Number",
+            errorMessage:true
+          })
+        }
+        else{
+          this.setState({numberError:""});
+        }
+      }
+
+      handlepinCodeChange=(e)=>{
+        this.setState({
+            [e.target.pinCode]:e.target.value
+        });
+        let pinCodeRegex=RegExp("^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$");
+        if(!pinCodeRegex.test(e.target.value)){
+          this.setState({
+            pinCodeError:"Invalid Pin Code",
+            errorMessage:true
+          })
+        }
+        else{
+          this.setState({pinCodeError:""});
+        }
+      }
 
     setCustomerForm = (customerData) => {
         this.setState({
@@ -73,11 +125,14 @@ class CustomerForm extends React.Component{
                    <div className="form-container">
                        <div className="form-input">
                             <div className="row">
-                                <TextField className="text-input"  label="Name" variant='outlined' style={{marginRight: '1.5%'}} size='medium'/>
-                                <TextField className="text-input" type="text" variant='outlined' label="Phone Number" />
+                                <TextField className="text-input"  label="Name" variant='outlined' onChange={(e)=>{this.handleNameChange(e)}} style={{marginRight: '1.5%'}} size='medium'/>
+                                <error-output className="text-error" htmlFor="error">{this.state.textError}</error-output>                               
+                                <TextField className="text-input" type="text" variant='outlined' onChange={(e)=>{this.handleNumberChange(e)}}  label="Phone Number" />
+                                <error-output className="text-error" htmlFor="error">{this.state.numberError}</error-output>  
                             </div>
                             <div className="row">
-                                <TextField className="text-input" type="text" label="Pincode" variant='outlined' style={{ marginRight: '1.5%'}}/>
+                                <TextField className="text-input" type="text" label="Pincode" variant='outlined' onChange={(e)=>{this.handlepinCodeChange(e)}} style={{ marginRight: '1.5%'}}/>
+                                <error-output className="text-error" htmlFor="error">{this.state.pinCodeError}</error-output>
                                 <TextField className="text-input" type="text" label="Locality" variant='outlined'/>
                             </div>
                             <div className="row">
@@ -107,4 +162,4 @@ class CustomerForm extends React.Component{
     }
     
 }
-export default CustomerForm
+export default CustomerForm;
