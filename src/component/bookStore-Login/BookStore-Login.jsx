@@ -83,12 +83,12 @@ class Login extends React.Component {
           <div className="form">
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="text" name="email" onChange={(e)=>{this.handleEmailChange(e)}} placeholder="Email Address" />
+              <input type="text" name="email" onChange={(e)=>{this.handleEmailChange(e)}} placeholder="Email Address" required />
               <error-output className="email-error" htmlFor="error">{this.state.emailError}</error-output>
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" onChange={(e) => {this.handlePasswordChange(e)}} placeholder="password" />
+              <input type="password" name="password" onChange={(e) => {this.handlePasswordChange(e)}} placeholder="password" required />
               <error-output className="password-error" htmlFor="error">{this.state.passwordError}</error-output>
             </div>
           </div>

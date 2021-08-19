@@ -28,12 +28,13 @@ function BookDetails(props){
         {props.BookData.map(function ncard(val){
             return(
                 <Card
-                key={val.bookID}
+                key={val.bookId}
                 imgsrc={val.imageURL}
                 authorName={val.authorName}
                 bookName={val.bookName}
                 price={val.bookPrice}
                 changeNumber = {props.change}
+                bookId={val.bookId}
                 />
              )
         })}

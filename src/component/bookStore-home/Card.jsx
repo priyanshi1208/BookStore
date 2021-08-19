@@ -7,10 +7,11 @@ function Card (props) {
     const{changeNumber} = props;
 
 
-    const handleStateChange = () => {
+    const handleStateChange = (bookId) => {
         let userId = localStorage.getItem("userId");
         if(userId){
-            localStorage.setItem("number",1);
+            localStorage.setItem("number",1)
+            localStorage.setItem("bookId",bookId)
             changeNumber();
             setText("Added To Bag");
             setWishlistButton(false);
@@ -29,7 +30,7 @@ function Card (props) {
                     <span className='card_category'>by {props.authorName}</span>
                     <p className='card_price'> Rs. {props.price}</p>
                     <div className='button'>
-                    <button className='button-cart' onClick = {handleStateChange}>{text}</button>
+                    <button className='button-cart' onClick = {() => handleStateChange(props.bookId)}>{text}</button>
                     {wishlistButton && <button className='button-wishlist'>Wishlist</button>}
                     </div>
                 </div>

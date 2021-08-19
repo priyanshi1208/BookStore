@@ -8,6 +8,8 @@ class CustomerForm extends React.Component{
         super(props);
         this.state = {
             name:'',
+            emailId:'',
+            password:'',
             id:'',
             phoneNumber:'',
             pinCode:'',
@@ -16,23 +18,23 @@ class CustomerForm extends React.Component{
             town:'',
             type:'',
             address:'',
-            errorMessage:false,
             textError:"",
             numberError:"",
-            pinCodeError:""
+            pinCodeError:"",
+            isError:''
         }
     }
     componentDidMount = () => {
-        // let id = this.props.match.params.id;
-        // if(id !== undefined && id !==''){
-        //     new StoreService().getUserById(id)
-        //     .then(responseDTO => {
-        //         let responseData = responseDTO.data;
-        //         this.setCustomerForm(responseData.data);
-        //     }).catch(error => {
-        //         console.log("Error while Fetching Data"+JSON.stringify(error));
-        //     })
-        // }
+        
+            new StoreService().getUserById(localStorage.getItem("userId"))
+             .then(responseDTO => {
+                let responseData = responseDTO.data;
+                console.log(JSON.stringify(responseData));
+                this.setCustomerForm(responseData.data);
+            }).catch(error => {
+                console.log("Error while Fetching Data"+JSON.stringify(error));
+             })
+
     }
 
     handleNameChange=(e)=>{
@@ -43,78 +45,106 @@ class CustomerForm extends React.Component{
         if(!nameRegex.test(e.target.value)){
           this.setState({
             textError:"Invalid Name Format",
-            errorMessage:true
+            isError:true
           })
         }
         else{
-          this.setState({textError:""});
+          this.setState({textError:"",
+          isError:false})
         }
-      }
+    }
 
-      handleNumberChange=(e)=>{
+    handleNumberChange=(e)=>{
         this.setState({
-            [e.target.phoneNumber]:e.target.value
+            [e.target.name]:e.target.value
         });
         let phoneNumberRegex=RegExp("[+]{0,1}[0-9]{1,}\\s{0,1}[1-9]{1}[0-9]{9}$");
         if(!phoneNumberRegex.test(e.target.value)){
           this.setState({
             numberError:"Invalid Phone Number",
-            errorMessage:true
+            isError:true
           })
         }
         else{
-          this.setState({numberError:""});
+          this.setState({numberError:"",
+          isError:false});
         }
-      }
+    }
 
-      handlepinCodeChange=(e)=>{
+    handlepinCodeChange=(e)=>{
         this.setState({
-            [e.target.pinCode]:e.target.value
+            [e.target.name]:e.target.value
         });
         let pinCodeRegex=RegExp("^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$");
         if(!pinCodeRegex.test(e.target.value)){
           this.setState({
             pinCodeError:"Invalid Pin Code",
-            errorMessage:true
+            isError:true
           })
         }
         else{
-          this.setState({pinCodeError:""});
+          this.setState({pinCodeError:"",
+        isError:false});
         }
-      }
+    }
+
+    handleLocalityChange = (e) => {
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+    handleCityChange = (e) => {
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+    handleAddressChange = (e) => {
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+    handleLandmarkChange = (e) => {
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
 
     setCustomerForm = (customerData) => {
         this.setState({
-            id:customerData.id,
+            id:customerData.userId,
             name:customerData.name,
-            phoneNumber:customerData.phoneNumber
+            phoneNumber:customerData.phoneNumber,
+            emailId:customerData.emailId,
+            password:customerData.password
         })
     }
 
     save = async (event) => {
         event.preventDefault();
         console.log("save button clicked");
-        if(this.state.isErrorForName || this.state.isErrorForDate || this.state.isErrorForSalary){
+        if(this.state.isError){
             window.alert("Please Fill correct values");
         }else{
             let customerObject = {
-                id:this.state.id,
+                userId:this.state.id,
+                name:this.state.name,
+                phoneNumber:this.state.phoneNumber,
                 pinCode:this.state.pinCode,
                 locality:this.state.locality,
                 address:this.state.address,
-                landmark:this.state.landmark,
-                town:this.state.town,
-                type:this.state.type
+                landMark:this.state.landmark,
+                city:this.state.city,
+                password:this.state.password,
+                emailId:this.state.emailId,
             }
-            new StoreService().updateUser(customerObject)
-            .then(responseText => {
-                console.log("Data updated successfully" +JSON.stringify(responseText.data));
-            })
-            .catch(error => {
-                console.log("Error While Adding Data"+JSON.stringify(error));
-            })
+           console.log(JSON.stringify(customerObject));
+           new StoreService().updateUser(customerObject)
+           .then(responseText => {
+            console.log("Data updated successfully" +JSON.stringify(responseText.data));
+           }).catch(error => {
+               console.log("Error While Updating User",JSON.stringify(error));
+           })
         }
-       
     }
 
     render(){
@@ -125,22 +155,22 @@ class CustomerForm extends React.Component{
                    <div className="form-container">
                        <div className="form-input">
                             <div className="row">
-                                <TextField className="text-input"  label="Name" variant='outlined' onChange={(e)=>{this.handleNameChange(e)}} style={{marginRight: '1.5%'}} size='medium'/>
+                                <TextField className="text-input" name="name" label="Name" value={this.state.name} variant='outlined' onChange={(e)=>{this.handleNameChange(e)}} style={{marginRight: '1.5%'}} size='medium'></TextField>
                                 <error-output className="text-error" htmlFor="error">{this.state.textError}</error-output>                               
-                                <TextField className="text-input" type="text" variant='outlined' onChange={(e)=>{this.handleNumberChange(e)}}  label="Phone Number" />
+                                <TextField className="text-input" name="phoneNumber" type="text" value={this.state.phoneNumber} variant='outlined' onChange={(e)=>{this.handleNumberChange(e)}}  label="Phone Number" />
                                 <error-output className="text-error" htmlFor="error">{this.state.numberError}</error-output>  
                             </div>
                             <div className="row">
-                                <TextField className="text-input" type="text" label="Pincode" variant='outlined' onChange={(e)=>{this.handlepinCodeChange(e)}} style={{ marginRight: '1.5%'}}/>
+                                <TextField className="text-input" type="text" name="pinCode" value={this.state.pinCode} label="Pincode" variant='outlined' onChange={(e)=>{this.handlepinCodeChange(e)}} style={{ marginRight: '1.5%'}}/>
                                 <error-output className="text-error" htmlFor="error">{this.state.pinCodeError}</error-output>
-                                <TextField className="text-input" type="text" label="Locality" variant='outlined'/>
+                                <TextField className="text-input" value={this.state.locality} name="locality" type="text" label="Locality" variant='outlined' onChange={(e)=>{this.handleLocalityChange(e)}} />
                             </div>
                             <div className="row">
-                                <TextField className="textarea" label="Address" variant='outlined' multiline={true} maxRows={5} />
+                                <TextField className="textarea" name="address" value={this.state.address} label="Address" variant='outlined' multiline={true} maxRows={5} onChange={(e)=>{this.handleAddressChange(e)}} />
                             </div>
                             <div className="row">
-                                <TextField className="text-input" type="text" label="city/town" variant='outlined' style={{ marginRight: '1.5%'}}/>
-                                <TextField className="text-input" type="text" label="Landmark" variant='outlined'/>
+                                <TextField className="text-input" name="city" value={this.state.city} type="text" label="city/town" onChange={(e)=>{this.handleCityChange(e)}} variant='outlined' style={{ marginRight: '1.5%'}}/>
+                                <TextField className="text-input" name="landmark" value={this.state.landmark} type="text" label="Landmark" variant='outlined'onChange={(e)=>{this.handleLandmarkChange(e)}} />
                             </div>
                             <div className="radio-row">
                                 <label className="type-label">Type</label><br/>
