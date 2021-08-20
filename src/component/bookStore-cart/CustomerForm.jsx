@@ -25,16 +25,13 @@ class CustomerForm extends React.Component{
         }
     }
     componentDidMount = () => {
-        
             new StoreService().getUserById(localStorage.getItem("userId"))
              .then(responseDTO => {
                 let responseData = responseDTO.data;
-                console.log(JSON.stringify(responseData));
                 this.setCustomerForm(responseData.data);
             }).catch(error => {
                 console.log("Error while Fetching Data"+JSON.stringify(error));
              })
-
     }
 
     handleNameChange=(e)=>{
@@ -137,7 +134,6 @@ class CustomerForm extends React.Component{
                 password:this.state.password,
                 emailId:this.state.emailId,
             }
-           console.log(JSON.stringify(customerObject));
            new StoreService().updateUser(customerObject)
            .then(responseText => {
             console.log("Data updated successfully" +JSON.stringify(responseText.data));

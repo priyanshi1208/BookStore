@@ -9,7 +9,7 @@ class OrderPlaced extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            cartNumber:''
+            cartNumber:'',
         }
     }
     componentDidMount(){
@@ -22,7 +22,6 @@ class OrderPlaced extends React.Component{
     }
 
     render(){
-
         return(
             <>
             <NavigationBar
