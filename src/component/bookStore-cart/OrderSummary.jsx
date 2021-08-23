@@ -52,13 +52,21 @@ function OrderSummary(props){
                 <div className="cart-container">
                     <div className="Book-container">
                         <div className='summary-title'>Order Summary</div>
-                        <img className='book-cover' src={imageURL} alt="" />
                     </div>
-                    <div className='book-info'>
-                        <h4 className='book-title'>{bookName}</h4>
-                        <p className='author-name'>{authorName}</p>
-                        <h4>Rs. {bookPrice}</h4>
+                    {
+                    JSON.parse(localStorage.getItem("cartDetails")).map((books) => (
+                        <div className="details">
+                        <div className = "book-container">
+                                <img className="book-cover" src = {books.imgsrc} alt="book-image"></img>
+                            </div>
+                        <div className='book-info'>
+                        <h4 className='book-title'>{books.bookName}</h4>
+                        <p className='author-name'>{books.authorName}</p>
+                        <h4>Rs. {books.price}</h4>
                     </div>
+                    </div>
+                    ))   
+                    }
                 </div>
                 <div className="button-container">
                     <button className="place-order" onClick={placeOrder} >CHECKOUT</button>

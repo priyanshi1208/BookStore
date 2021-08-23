@@ -36,6 +36,7 @@ class BookStoreCart extends React.Component{
                 </section>
                 <section>
                     <CartPage
+                    
                         togglePanel={this.togglePanel}
                     />
                 </section>

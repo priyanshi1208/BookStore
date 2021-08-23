@@ -1,55 +1,37 @@
-import React, { useEffect } from 'react';
+
 import './CartPage.scss';
-import { useState } from 'react';
 function CartPage(props) {
-    const[imageURL,setImageURL] = useState('')
-    const[bookName,setBookName] = useState('')
-    const[bookPrice,setBookPrice] = useState('');
-    const[authorName,setAuthorName] = useState('') 
-    useEffect(() => {
-        let cartDetails=[];
-        cartDetails=localStorage.getItem('cartDetails');
-        window.alert(cartDetails)
-        // cartDetails.map((book)=>{
-        //     window.alert(book.bookName)
-        // })
-        
-    },[])
-    //     new StoreService().getBookById(localStorage.getItem("bookId"))
-    //     .then(responseDTO => {
-    //         let bookData = responseDTO.data;
-    //         setImageURL(bookData.data.imageURL)
-    //         setBookName(bookData.data.bookName)
-    //         setAuthorName(bookData.data.authorName);
-    //         setBookPrice(bookData.data.bookPrice)
-    //     }).catch(error => {
-    //         console.log("Error while retrieving Book Data",JSON.stringify(error));
-    //     })
-    // },[])
         return(
             <div className="main">
                 <div className="cart">
-                <div className="cart-container">
+                <div className="cart-container1">
                     <div className="book-container">
-                        <h4 className='cart-title'>My Cart(1)</h4>
-                        <img className='book-cover' src={imageURL} alt="" />
+                        <h4 className='cart-title'>My Cart</h4>
                     </div>
-                    <div className='book-info'>
-                        <h4 className='book-title'>{bookName}</h4>
-                        <p className='author-name'>by {authorName}</p>
-                        <h4>Rs. {bookPrice}</h4>
-                        <span className='controls'>
-                            <div className="quantity">
-                                 <button disabled={true}>-</button>
-                                 <input type="text" defaultValue={1} contentEditable={false}/>
-                                 <button>+</button>
+                    {
+                        JSON.parse(localStorage.getItem("cartDetails")).map((books) =>(
+                            <div className="details">
+                            <div className = "book-container">
+                                <img className="book-cover1" src = {books.imgsrc} alt="book-image"></img>
                             </div>
-                            <h6>Remove</h6>
-                        </span>
-                    </div>
+                             <div className='book-info1'>
+                                 <h4 className='book-title'>{books.bookName}</h4>
+                                 <p className='author-name'>by {books.authorName}</p>
+                                 <h4>Rs. {books.price}</h4>
+                                 <span className='controls1'>
+                                     <div className="quantity">
+                                         <button disabled={true}>-</button>
+                                         <input type="text" defaultValue={1} contentEditable={false}/>
+                                         <button>+</button>
+                                    </div>
+                                </span>
+                             </div>
+                            </div>
+                        ))
+                    }
                 </div>
-                <div className="button-container">
-                    <button className="place-order" onClick={(e)=>props.togglePanel(e)}>PLACE ORDER</button>
+                <div className="button-container1">
+                    <button className="place-order1" onClick={(e)=>props.togglePanel(e)}>PLACE ORDER</button>
                 </div>
             </div>
             </div>
