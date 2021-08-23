@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import './CartPage.scss';
-import StoreService from '../../service/StoreService';
 import { useState } from 'react';
 function CartPage(props) {
     const[imageURL,setImageURL] = useState('')
@@ -8,17 +7,25 @@ function CartPage(props) {
     const[bookPrice,setBookPrice] = useState('');
     const[authorName,setAuthorName] = useState('') 
     useEffect(() => {
-        new StoreService().getBookById(localStorage.getItem("bookId"))
-        .then(responseDTO => {
-            let bookData = responseDTO.data;
-            setImageURL(bookData.data.imageURL)
-            setBookName(bookData.data.bookName)
-            setAuthorName(bookData.data.authorName);
-            setBookPrice(bookData.data.bookPrice)
-        }).catch(error => {
-            console.log("Error while retrieving Book Data",JSON.stringify(error));
-        })
+        let cartDetails=[];
+        cartDetails=localStorage.getItem('cartDetails');
+        window.alert(cartDetails)
+        // cartDetails.map((book)=>{
+        //     window.alert(book.bookName)
+        // })
+        
     },[])
+    //     new StoreService().getBookById(localStorage.getItem("bookId"))
+    //     .then(responseDTO => {
+    //         let bookData = responseDTO.data;
+    //         setImageURL(bookData.data.imageURL)
+    //         setBookName(bookData.data.bookName)
+    //         setAuthorName(bookData.data.authorName);
+    //         setBookPrice(bookData.data.bookPrice)
+    //     }).catch(error => {
+    //         console.log("Error while retrieving Book Data",JSON.stringify(error));
+    //     })
+    // },[])
         return(
             <div className="main">
                 <div className="cart">
