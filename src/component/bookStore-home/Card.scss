@@ -1,0 +1,29 @@
+.cards:hover .description-box {
+    visibility: visible;
+}
+.cards .description-box {
+    visibility: hidden;
+    width: 35%;
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;
+    padding: 4px 0;
+    border-radius: 6px;
+    margin-top: 1%;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+.description-heading{
+    text-align: left;
+    padding-left: 3%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    font-weight: bold;
+}
+.description-text{
+    font-size: 13px;
+    text-align: left;
+    padding-left:3% ;
+}

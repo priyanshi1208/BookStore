@@ -35,6 +35,7 @@ function BookDetails(props){
                 price={val.bookPrice}
                 changeNumber = {props.change}
                 bookId={val.bookId}
+                description={val.descriptions}
                 />
              )
         })}
