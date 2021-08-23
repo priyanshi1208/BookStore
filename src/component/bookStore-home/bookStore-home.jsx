@@ -4,6 +4,7 @@ import BookDetails from './BookDetails';
 import BookService from '../../service/StoreService';
 import NavigationBar from '../navigationBar/NavigationBar';
 import Footer from '../footer/footer'
+import Pagination from '@material-ui/lab/Pagination';
 
 class BookStoreHome extends React.Component{
     constructor(props){
