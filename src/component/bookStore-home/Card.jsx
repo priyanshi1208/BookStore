@@ -1,4 +1,5 @@
 import React, {useState } from 'react';
+import './Card.scss';
 
 
 function Card (props) {
@@ -40,6 +41,10 @@ function Card (props) {
                     </div>
                 </div>
             </div>
+            <span className="description-box">
+                <div className="description-heading">Book Details</div>
+                <div className="description-text">{props.description}</div>
+            </span>
         </div>
     );
 
