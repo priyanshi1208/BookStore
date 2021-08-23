@@ -27,7 +27,6 @@ class BookStoreHome extends React.Component{
         this.bookservice.getAllBooks()
         .then(responseDTO => {
             let books = responseDTO.data;
-            console.log("Data recieved after GET call successful" + books.data);
             this.setState({bookData:books.data});
         }).catch(error => {
             console.log("Error while Getting Data From Server");

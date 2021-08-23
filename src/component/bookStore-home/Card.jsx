@@ -1,4 +1,5 @@
 import React, {useState } from 'react';
+import './Card.scss';
 
 
 function Card (props) {
@@ -7,10 +8,16 @@ function Card (props) {
     const{changeNumber} = props;
 
 
-    const handleStateChange = () => {
+    const handleStateChange = (bookId,bookName,authorName,price,imgsrc) => {
         let userId = localStorage.getItem("userId");
         if(userId){
-            localStorage.setItem("number",1);
+            let cartDetails=[];
+            if(localStorage.getItem('cartDetails')){
+                cartDetails=JSON.parse(localStorage.getItem('cartDetails'));
+            }
+            cartDetails.push({'bookId':bookId,'bookName':bookName,'authorName':authorName,'price':price,'imgsrc':imgsrc})
+            localStorage.setItem('cartDetails',JSON.stringify(cartDetails))
+            localStorage.setItem("number",cartDetails.length)
             changeNumber();
             setText("Added To Bag");
             setWishlistButton(false);
@@ -29,11 +36,15 @@ function Card (props) {
                     <span className='card_category'>by {props.authorName}</span>
                     <p className='card_price'> Rs. {props.price}</p>
                     <div className='button'>
-                    <button className='button-cart' onClick = {handleStateChange}>{text}</button>
+                    <button className='button-cart' onClick = {() => handleStateChange(props.bookId,props.bookName,props.authorName,props.price,props.imgsrc)}>{text}</button>
                     {wishlistButton && <button className='button-wishlist'>Wishlist</button>}
                     </div>
                 </div>
             </div>
+            <span className="description-box">
+                <div className="description-heading">Book Details</div>
+                <div className="description-text">{props.description}</div>
+            </span>
         </div>
     );
 

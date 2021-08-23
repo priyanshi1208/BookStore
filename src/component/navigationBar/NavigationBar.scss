@@ -41,7 +41,7 @@
 .cart-nav{
     display: flex;
     flex-direction: row;
-    margin-left: 24%;
+    margin-left: 22%;
     margin-top: 13px;
 }
 .cart-txt{
@@ -81,6 +81,17 @@
     font-size: 11px;
   }
 
+  .user-name{
+    height: 13px;
+    text-align: left;
+    font: normal normal normal 15px/13px Roboto;
+    letter-spacing: 0.45px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-top: 1.7%;
+    margin-left: 5%;
+  }
+
 .search-bar{
     margin-left: 5%;
     width: 36%;
@@ -92,7 +103,6 @@
     flex-direction: row;
     margin-top: 12px;
 }
-
 
 .search-img{
     margin-left: 4%;
