@@ -1,6 +1,6 @@
 import React from "react";
 import loginImg from "../../images/login.svg";
-import './Login-Register.scss';
+import './Login.scss';
 import StoreService from "../../service/StoreService";
 
 class Login extends React.Component {
@@ -74,6 +74,9 @@ class Login extends React.Component {
 
   render() {
     return (
+      <div className="App">
+      <div className="login">
+        <div className="container">
       <div className="base-container" ref={this.props.containerRef}>
         <div className="header">Login</div>
         <div className="content">
@@ -83,12 +86,12 @@ class Login extends React.Component {
           <div className="form">
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="text" name="email" onChange={(e)=>{this.handleEmailChange(e)}} placeholder="Email Address" required />
+              <input type="text" name="email" onChange={(e)=>{this.handleEmailChange(e)}} />
               <error-output className="email-error" htmlFor="error">{this.state.emailError}</error-output>
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" onChange={(e) => {this.handlePasswordChange(e)}} placeholder="password" required />
+              <input type="password" name="password" onChange={(e) => {this.handlePasswordChange(e)}}/>
               <error-output className="password-error" htmlFor="error">{this.state.passwordError}</error-output>
             </div>
           </div>
@@ -98,6 +101,17 @@ class Login extends React.Component {
             Login
           </button>
         </div>
+        <div>
+          <h5>Or</h5>
+        </div>
+        <div className="">
+        <button type="button" className="btn">
+            Create A New User
+          </button>
+          </div>
+      </div>
+      </div>
+      </div>
       </div>
     );
   }

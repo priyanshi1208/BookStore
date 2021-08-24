@@ -1,6 +1,6 @@
 import React from "react";
 import loginImg from "../../images/login.svg";
-import './Login-Register.scss';
+import './Register.scss';
 import StoreService from "../../service/StoreService";
 
 class Register extends React.Component {
@@ -108,6 +108,9 @@ class Register extends React.Component {
 
   render() {
     return (
+      <div className="App">
+      <div className="login">
+        <div className="container">
       <div className="base-container" ref={this.props.containerRef}>
         <div className="header">Register</div>
         <div className="content">
@@ -117,22 +120,22 @@ class Register extends React.Component {
           <form className="form">
             <div className="form-group">
               <label htmlFor="username">Name</label>
-              <input type="text" name="username"  onChange={(e)=>{this.handleNameChange(e)}} placeholder="Name" />
+              <input type="text" name="username"  onChange={(e)=>{this.handleNameChange(e)}}  />
               <error-output className="text-error" htmlFor="error">{this.state.textError}</error-output>
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="email" name="email"  onChange={(e)=>{this.handleEmailChange(e)}} placeholder="Email" />
+              <input type="email" name="email"  onChange={(e)=>{this.handleEmailChange(e)}}  />
               <error-output className="email-error" htmlFor="error">{this.state.emailError}</error-output>
             </div>
             <div className="form-group">
               <label htmlFor="phoneNumber">Phone Number</label>
-              <input type="text" name="phoneNumber"  onChange={(e)=>{this.handleNumberChange(e)}} placeholder="Phone Number" />
+              <input type="text" name="phoneNumber"  onChange={(e)=>{this.handleNumberChange(e)}}  />
               <error-output className="number-error" htmlFor="error">{this.state.numberError}</error-output>
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" name="password"  onChange={(e)=>{this.handlePasswordChange(e)}} placeholder="Password" />
+              <input type="password" name="password"  onChange={(e)=>{this.handlePasswordChange(e)}}  />
               <error-output className="password-error" htmlFor="error">{this.state.passwordError}</error-output>
             </div>
           </form>
@@ -142,6 +145,9 @@ class Register extends React.Component {
             Register
           </button>
         </div>
+      </div>
+      </div>
+      </div>
       </div>
     );
   }
