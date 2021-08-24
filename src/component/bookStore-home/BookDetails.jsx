@@ -13,17 +13,6 @@ function BookDetails(props){
                     <div className="count">({props.BookData.length}Items)</div>
                 </div>
             </div>
-            <div className="book-sort">
-                <div className="sort">
-                    <select className="sort-box">
-                        <option selected value="dafault">Sort by relevence</option>
-                        <option value="Price:Low to High">Price:Low to High</option>
-                        <option value="Price:High to Low">Price:High to Low</option>
-                        <option value="Newest Arrival">Newest Arrival</option>
-                    </select>
-
-                </div>
-            </div>
         </div>
         {props.BookData.map(function ncard(val){
             return(
