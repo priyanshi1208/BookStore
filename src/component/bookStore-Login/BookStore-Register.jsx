@@ -107,6 +107,7 @@ class Register extends React.Component {
       .then(response=>{
       console.log("Data Added Successfully"+JSON.stringify(response.data));
       window.alert("User Registered Successfully");
+      window.location.replace('/login')
       })
       .catch(error=>{
       console.log("Error in Adding data"+JSON.stringify(error));

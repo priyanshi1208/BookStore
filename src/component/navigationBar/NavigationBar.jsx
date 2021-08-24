@@ -54,15 +54,16 @@ function NavigationBar(props){
                 <img className="search-img" src={search} alt="search"></img>
                 <input type="text" className="search-input" placeholder="Search..."/>
             </div>
+            <p className="user-name" onClick={logout}>Hi! {userName}</p>
+            <span className="logout-box">
+                <div className="logout">{logoutText}</div>
+            </span>
             <div className="cart-nav">
                 <p className="cart-txt">Cart</p>
                 <img className="cart-img" src={cart} alt="cart" onClick={handleCartClick} ></img>
                 <p className="cart-number">{props.cartNumber}</p>
             </div>  
-            <p className="user-name" onClick={logout}>{userName}</p>
-            <span className="logout-box">
-                <div className="logout">{logoutText}</div>
-            </span>
+            
         </nav>
     )
 }
