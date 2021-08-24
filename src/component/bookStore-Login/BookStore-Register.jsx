@@ -3,6 +3,7 @@ import loginImg from "../../images/login.svg";
 import './Register.scss';
 import StoreService from "../../service/StoreService";
 import { TextField } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 
 class Register extends React.Component {
@@ -33,7 +34,7 @@ class Register extends React.Component {
     let nameRegex=RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$");
     if(!nameRegex.test(e.target.value)){
       this.setState({
-        textError:"Invalid Name Format",
+        textError:"Enter Valid Name e.g.:Abc abc",
         errorMessage:true
       })
     }
@@ -49,7 +50,7 @@ class Register extends React.Component {
     let numberRegex=RegExp("\\d{2}\\d{10}");
     if(!numberRegex.test(e.target.value)){
       this.setState({
-      numberError:"Invalid Number Format",
+      numberError:"Enter Valid Number e.g.:917263534327",
       errorMessage:true
       })
     }
@@ -65,7 +66,7 @@ class Register extends React.Component {
     let emailRegex=RegExp("^[A-Za-z0-9-\\+]+(\\.[A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
     if(!emailRegex.test(e.target.value)){
       this.setState({
-      emailError:"Invalid Email Format",
+      emailError:"Enter Valid Mail e.g.:abc124@example.com",
       errorMessage:true
       })
     }
@@ -81,7 +82,7 @@ class Register extends React.Component {
     let passwordRegex=RegExp("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&*-+=()]).{8,}$");
     if(!passwordRegex.test(e.target.value)){
       this.setState({
-      passwordError:"Invalid Password",
+      passwordError:"Enter Valid Password e.g.:Abc123@cdf ",
       errorMessage:true
       })
     }
@@ -144,9 +145,10 @@ class Register extends React.Component {
           </form>
         </div>
         <div className="footer-register">
-          <button type="submit" onClick={(e)=>{this.save(e)}} className="btn">
+          <Link to="/login"><button type="submit" onClick={(e)=>{this.save(e)}} className="btn">
             Register
           </button>
+          </Link>
         </div>
       </div>
       </div>

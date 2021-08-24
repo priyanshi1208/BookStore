@@ -9,6 +9,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  display: flex;
 }
 
 .App-logo {
@@ -30,7 +31,7 @@
 .App-link {
   color: #61dafb;
 }
-.base-container {
+.base-container-login {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -110,7 +111,7 @@
     }
   
     .footer {
-      margin-top: 2.5em;
+      margin-top: 2.1em;
     }
   }
   .or{

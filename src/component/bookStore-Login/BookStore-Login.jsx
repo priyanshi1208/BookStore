@@ -16,8 +16,8 @@ class Login extends React.Component {
       isError:''
     }
     this.textFieldStyle = {
-      height: '30px',
-      width:'300px'
+      height: '35px',
+      width:'300px',
     }
   }
 
@@ -30,7 +30,7 @@ class Login extends React.Component {
     let emailRegex=RegExp("^[A-Za-z0-9-\\+]+(\\.[A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
     if(!emailRegex.test(e.target.value)){
       this.setState({
-      emailError:"Invalid Email Format",
+      emailError:"Enter Valid Mail e.g.:abc124@example.com",
       isError:true
       })
     }
@@ -47,7 +47,7 @@ class Login extends React.Component {
     let passwordRegex=RegExp("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&*-+=()]).{8,}$");
     if(!passwordRegex.test(e.target.value)){
       this.setState({
-      passwordError:"Invalid Password",
+      passwordError:"Enter Valid Password e.g.:Abc123@cdf",
       isError:true
       })
     }
@@ -85,7 +85,7 @@ class Login extends React.Component {
       <div className="bookStore-login">
       <div className="login">
         <div className="container">
-      <div className="base-container" ref={this.props.containerRef}>
+      <div className="base-container-login" ref={this.props.containerRef}>
         <div className="header">Login</div>
         <div className="content">
           <div className="image">
