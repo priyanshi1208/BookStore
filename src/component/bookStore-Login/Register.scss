@@ -65,7 +65,7 @@
     
     
         .form {
-          margin-top: 0em;
+          margin-top: 1em;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -103,10 +103,9 @@
           }
         }
       }
-    
-      .footer {
-        margin-top: 1em;
-      }
+    }
+    .footer-register{
+      margin-top: 1.5em;
     }
     h5{
       // margin-left: 245px;
@@ -117,22 +116,22 @@
       color: #A03037;
       font-size: 15px;
     }
-    .btn {
-      font-size: 21px;
-      padding: 5px 20px;
-      border: 0;
-      width: 300px;
-      margin-top: -30px;
-      margin-bottom: -20px;
-      background-color: #A03037;
-      color: #fff;
-      border-radius: 3px;
-      transition: all 250ms ease-in-out;
-      cursor: pointer;
-      &:hover {
-        background-color: #A03037;
-      }
-      &:focus {
-        outline: none;
-      }
-    }
+    // .btn {
+    //   font-size: 21px;
+    //   padding: 5px 20px;
+    //   border: 0;
+    //   width: 300px;
+    //   margin-top: -30px;
+    //   margin-bottom: -20px;
+    //   background-color: #A03037;
+    //   color: #fff;
+    //   border-radius: 3px;
+    //   transition: all 250ms ease-in-out;
+    //   cursor: pointer;
+    //   &:hover {
+    //     background-color: #A03037;
+    //   }
+    //   &:focus {
+    //     outline: none;
+    //   }
+    // }

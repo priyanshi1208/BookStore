@@ -1,10 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 .bookStore-login {
   text-align: center;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: Roboto;
   height:100vh;
+  background-image: url("../../images/books.jfif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .App-logo {
@@ -34,6 +38,7 @@
   border: 1px solid #A03037;
   height: 500px;
   border-radius: 5px;
+  background-color: rgb(235, 233, 233);
   &:hover {
     background-color: #ffffff;
     box-shadow: 0px 0px 14px 0.3px #A03037;
@@ -65,7 +70,7 @@
   
   
       .form {
-        margin-top: 0em;
+        margin-top: 1em;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -105,12 +110,14 @@
     }
   
     .footer {
-      margin-top: 1em;
+      margin-top: 2.5em;
     }
   }
-  h5{
-    // margin-left: 245px;
-    margin-top: 20px;
+  .or{
+    font:17px Roboto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
   }
   a{
     text-decoration: none;
@@ -118,8 +125,9 @@
     font-size: 15px;
   }
   .btn {
-    font-size: 21px;
-    padding: 5px 20px;
+    font-family: Roboto;
+    font-size: 18px;
+    padding: 7px 20px;
     border: 0;
     width: 300px;
     margin-top: -30px;
@@ -133,6 +141,6 @@
       background-color: #A03037;
     }
     &:focus {
-      outline: none;
+      outline:none;
     }
   }

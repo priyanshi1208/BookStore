@@ -3,6 +3,7 @@ import loginImg from "../../images/login.svg";
 import './Login.scss';
 import StoreService from "../../service/StoreService";
 import {TextField} from '@material-ui/core';
+import { Link } from "react-router-dom";
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -93,7 +94,7 @@ class Login extends React.Component {
           <div className="form">
             <div>
               <br />
-              <TextField label='Email' variant='outlined' color='secondary' style={this.textFieldStyle} size="small" type="text" name="email" onChange={(e)=>{this.handleEmailChange(e)}} />
+              <TextField label='Email' variant='outlined' color='secondary' style={this.textFieldStyle} size="small" type="text" name="email" required="" onChange={(e)=>{this.handleEmailChange(e)}} />
               <br />
               <error-output className="email-error" htmlFor="error">{this.state.emailError}</error-output>
             </div>
@@ -108,15 +109,13 @@ class Login extends React.Component {
           <button type="button" onClick={(e) => {this.login(e)}} className="btn">
             Login
           </button>
-        </div>
-        <div>
-          <h5>Or</h5>
-        </div>
-        <div className="">
-        <button type="button" className="btn">
-            Create A New User
+          <div className="or"> OR </div>
+          <Link to="/register"><button type="button" className="btn" >
+          Create A New User
           </button>
-          </div>
+          </Link>
+        
+        </div>
       </div>
       </div>
       </div>
