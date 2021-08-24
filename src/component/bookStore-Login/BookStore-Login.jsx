@@ -81,7 +81,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="bookStore-login">
       <div className="login">
         <div className="container">
       <div className="base-container" ref={this.props.containerRef}>
