@@ -125,23 +125,20 @@ class Register extends React.Component {
             <img src={loginImg} />
           </div>
           <form className="form">
-              {/* <label htmlFor="username">Name</label> */}
-              <TextField label='Name' variant='outlined' style={this.textFieldStyle} size='small' type="text" name="username"  onChange={(e)=>{this.handleNameChange(e)}}  />
+              <TextField label='Name' variant='outlined' color='secondary' style={this.textFieldStyle} size='small' type="text" name="username"  onChange={(e)=>{this.handleNameChange(e)}}  />
               <error-output className="text-error" htmlFor="error">{this.state.textError}</error-output>
 
 
-              {/* <label htmlFor="email">Email</label> */}
-              <TextField label='Email' variant='outlined' style={this.textFieldStyle} size='small' type="email" name="email"  onChange={(e)=>{this.handleEmailChange(e)}}  />
+              <TextField label='Email' variant='outlined' color='secondary' style={this.textFieldStyle} size='small' type="email" name="email"  onChange={(e)=>{this.handleEmailChange(e)}}  />
               <error-output className="email-error" htmlFor="error">{this.state.emailError}</error-output>
             
             
-              {/* <label htmlFor="phoneNumber">Phone Number</label> */}
-              <TextField label='Phone Number' variant='outlined' style={this.textFieldStyle} size='small' type="text" name="phoneNumber"  onChange={(e)=>{this.handleNumberChange(e)}}  />
+              <TextField label='Phone Number' variant='outlined' color='secondary' style={this.textFieldStyle} size='small' type="text" name="phoneNumber"  onChange={(e)=>{this.handleNumberChange(e)}}  />
               <error-output className="number-error" htmlFor="error">{this.state.numberError}</error-output>
             
             
               {/* <label htmlFor="password">Password</label> */}
-              <TextField label='Password' variant='outlined' style={this.textFieldStyle} size='small' type="password" name="password"  onChange={(e)=>{this.handlePasswordChange(e)}}  />
+              <TextField label='Password' variant='outlined' color='secondary' style={this.textFieldStyle} size='small' type="password" name="password"  onChange={(e)=>{this.handlePasswordChange(e)}}  />
               <error-output className="password-error" htmlFor="error">{this.state.passwordError}</error-output>
             
           </form>

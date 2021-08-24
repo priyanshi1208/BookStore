@@ -93,12 +93,12 @@ class Login extends React.Component {
           <div className="form">
             <div>
               <br />
-              <TextField label='Email' color='secondary' variant='outlined' style={this.textFieldStyle} size="small" type="text" name="email" onChange={(e)=>{this.handleEmailChange(e)}} />
+              <TextField label='Email' variant='outlined' color='secondary' style={this.textFieldStyle} size="small" type="text" name="email" onChange={(e)=>{this.handleEmailChange(e)}} />
               <br />
               <error-output className="email-error" htmlFor="error">{this.state.emailError}</error-output>
             </div>
             <div>
-              <TextField label='Password' style={this.textFieldStyle} variant='outlined' size="small" type="password" name="password" onChange={(e) => {this.handlePasswordChange(e)}}/>
+              <TextField label='Password' color='secondary' style={this.textFieldStyle} variant='outlined' size="small" type="password" name="password" onChange={(e) => {this.handlePasswordChange(e)}}/>
               <br />
               <error-output className="password-error" htmlFor="error">{this.state.passwordError}</error-output>
             </div>
