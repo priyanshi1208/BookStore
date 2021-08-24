@@ -21,7 +21,8 @@ class CustomerForm extends React.Component{
             textError:"",
             numberError:"",
             pinCodeError:"",
-            isError:''
+            isError:'',
+            isFilled:false,
         }
     }
     componentDidMount = () => {
@@ -102,7 +103,8 @@ class CustomerForm extends React.Component{
     }
     handleLandmarkChange = (e) => {
         this.setState({
-            [e.target.name]:e.target.value
+            [e.target.name]:e.target.value,
+            isFilled:true
         })
     }
 
@@ -119,7 +121,7 @@ class CustomerForm extends React.Component{
     save = async (event) => {
         event.preventDefault();
         console.log("save button clicked");
-        if(this.state.isError){
+        if(this.state.isError ||  !this.state.isFilled){
             window.alert("Please Fill correct values");
         }else{
             let customerObject = {

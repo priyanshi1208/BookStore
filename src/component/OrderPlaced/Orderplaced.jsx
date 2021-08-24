@@ -17,7 +17,6 @@ class OrderPlaced extends React.Component{
     }
     removeLocalStorage = () => {
         localStorage.removeItem("number");
-        localStorage.removeItem("userId");
         localStorage.removeItem("bookId");
         localStorage.removeItem("cartDetails");
     }

@@ -89,8 +89,33 @@
     color: #FFFFFF;
     opacity: 1;
     margin-top: 1.7%;
-    margin-left: 5%;
+    margin-left: 2%;
+    cursor: pointer;
   }
+
+.navigation-bar:hover .logout-box {
+    visibility: visible;
+}
+.navigation-bar .logout-box {
+    visibility: hidden;
+    width: fit-content;
+    background-color: A03037;
+    color: white;
+    text-align: center;
+    padding: 2px 2px 0px 2px;
+    border-radius: 2px;
+    margin-top: 2%;
+    height: 20px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: relative;
+    z-index: 1;
+}
+
+.logout{
+    font-size: 13px;
+    text-align: left;
+}
 
 .search-bar{
     margin-left: 5%;

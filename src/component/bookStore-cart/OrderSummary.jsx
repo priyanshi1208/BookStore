@@ -9,6 +9,7 @@ function OrderSummary(props){
     const[authorName,setAuthorName] = useState('') 
     const[bookId,setBookId] = useState('')
     const[userId,setUserId] = useState('')
+    const[totalAmount,setTotalAmount] = useState(0)
     useEffect(() => {
         new StoreService().getBookById(localStorage.getItem("bookId"))
         .then(responseDTO => {
@@ -29,7 +30,13 @@ function OrderSummary(props){
         }).catch(error => {
             console.log("Error while Fetching Data"+JSON.stringify(error));
         })
-        
+
+
+        let amount = 0;
+        JSON.parse(localStorage.getItem("cartDetails")).map((books) => (
+           amount = amount + books.price
+        ))
+        setTotalAmount(amount)
     },[])
 
     const placeOrder = () => {
@@ -67,6 +74,7 @@ function OrderSummary(props){
                     </div>
                     ))   
                     }
+                    <p className = "amount">Total Amount Rs. {totalAmount}</p>
                 </div>
                 <div className="button-container">
                     <button className="place-order" onClick={placeOrder} >CHECKOUT</button>

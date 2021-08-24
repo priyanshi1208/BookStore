@@ -11,12 +11,14 @@ import StoreService from '../../service/StoreService';
 function NavigationBar(props){  
 
     const[userName,setUserName] = useState('');
+    const[logoutText,setLogout] = useState('')
 
     useEffect(() => {
         new StoreService().getUserById(localStorage.getItem("userId"))
         .then(responseDTO => {
            let responseData = responseDTO.data;
-           setUserName("Hi, "+responseData.data.name);
+           setUserName(responseData.data.name);
+           setLogout("Logout")
        }).catch(error => {
            console.log("Error while Fetching Data"+JSON.stringify(error));
         })
@@ -30,6 +32,14 @@ function NavigationBar(props){
         else{
             window.alert("Please Login First")
         }
+    }
+
+    const logout = () => {
+        localStorage.removeItem("userId")
+        localStorage.removeItem("number");
+        localStorage.removeItem("bookId");
+        localStorage.removeItem("cartDetails");
+        window.location.replace("/")
     }
     
     return(
@@ -49,7 +59,10 @@ function NavigationBar(props){
                 <img className="cart-img" src={cart} alt="cart" onClick={handleCartClick} ></img>
                 <p className="cart-number">{props.cartNumber}</p>
             </div>  
-            <p className="user-name">{userName}</p>
+            <p className="user-name" onClick={logout}>{userName}</p>
+            <span className="logout-box">
+                <div className="logout">{logoutText}</div>
+            </span>
         </nav>
     )
 }

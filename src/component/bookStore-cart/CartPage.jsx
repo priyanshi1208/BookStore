@@ -18,13 +18,7 @@ function CartPage(props) {
                                  <h4 className='book-title'>{books.bookName}</h4>
                                  <p className='author-name'>by {books.authorName}</p>
                                  <h4>Rs. {books.price}</h4>
-                                 <span className='controls1'>
-                                     <div className="quantity">
-                                         <button disabled={true}>-</button>
-                                         <input type="text" defaultValue={1} contentEditable={false}/>
-                                         <button>+</button>
-                                    </div>
-                                </span>
+                                
                              </div>
                             </div>
                         ))
