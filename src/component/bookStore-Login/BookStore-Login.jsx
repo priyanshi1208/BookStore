@@ -2,10 +2,11 @@ import React from "react";
 import loginImg from "../../images/login.svg";
 import './Login.scss';
 import StoreService from "../../service/StoreService";
-
+import {TextField} from '@material-ui/core';
 class Login extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       email:'',
       password:'',
@@ -13,7 +14,13 @@ class Login extends React.Component {
       passwordError:'',
       isError:''
     }
+    this.textFieldStyle = {
+      height: '30px',
+      width:'300px'
+    }
   }
+
+  
 
   handleEmailChange = (e) => {
     this.setState({
@@ -84,14 +91,15 @@ class Login extends React.Component {
             <img src={loginImg} />
           </div>
           <div className="form">
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input type="text" name="email" onChange={(e)=>{this.handleEmailChange(e)}} />
+            <div>
+              <br />
+              <TextField label='Email' color='secondary' variant='outlined' style={this.textFieldStyle} size="small" type="text" name="email" onChange={(e)=>{this.handleEmailChange(e)}} />
+              <br />
               <error-output className="email-error" htmlFor="error">{this.state.emailError}</error-output>
             </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" onChange={(e) => {this.handlePasswordChange(e)}}/>
+            <div>
+              <TextField label='Password' style={this.textFieldStyle} variant='outlined' size="small" type="password" name="password" onChange={(e) => {this.handlePasswordChange(e)}}/>
+              <br />
               <error-output className="password-error" htmlFor="error">{this.state.passwordError}</error-output>
             </div>
           </div>

@@ -2,6 +2,8 @@ import React from "react";
 import loginImg from "../../images/login.svg";
 import './Register.scss';
 import StoreService from "../../service/StoreService";
+import { TextField } from "@material-ui/core";
+
 
 class Register extends React.Component {
   constructor(props) {
@@ -17,6 +19,11 @@ class Register extends React.Component {
       numberError:"",
       emailError:"",
       passwordError:""
+  }
+
+  this.textFieldStyle = {
+    margin:'5px',
+    width:'300px',
   }
   }
   handleNameChange=(e)=>{
@@ -118,26 +125,25 @@ class Register extends React.Component {
             <img src={loginImg} />
           </div>
           <form className="form">
-            <div className="form-group">
-              <label htmlFor="username">Name</label>
-              <input type="text" name="username"  onChange={(e)=>{this.handleNameChange(e)}}  />
+              {/* <label htmlFor="username">Name</label> */}
+              <TextField label='Name' variant='outlined' style={this.textFieldStyle} size='small' type="text" name="username"  onChange={(e)=>{this.handleNameChange(e)}}  />
               <error-output className="text-error" htmlFor="error">{this.state.textError}</error-output>
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input type="email" name="email"  onChange={(e)=>{this.handleEmailChange(e)}}  />
+
+
+              {/* <label htmlFor="email">Email</label> */}
+              <TextField label='Email' variant='outlined' style={this.textFieldStyle} size='small' type="email" name="email"  onChange={(e)=>{this.handleEmailChange(e)}}  />
               <error-output className="email-error" htmlFor="error">{this.state.emailError}</error-output>
-            </div>
-            <div className="form-group">
-              <label htmlFor="phoneNumber">Phone Number</label>
-              <input type="text" name="phoneNumber"  onChange={(e)=>{this.handleNumberChange(e)}}  />
+            
+            
+              {/* <label htmlFor="phoneNumber">Phone Number</label> */}
+              <TextField label='Phone Number' variant='outlined' style={this.textFieldStyle} size='small' type="text" name="phoneNumber"  onChange={(e)=>{this.handleNumberChange(e)}}  />
               <error-output className="number-error" htmlFor="error">{this.state.numberError}</error-output>
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password"  onChange={(e)=>{this.handlePasswordChange(e)}}  />
+            
+            
+              {/* <label htmlFor="password">Password</label> */}
+              <TextField label='Password' variant='outlined' style={this.textFieldStyle} size='small' type="password" name="password"  onChange={(e)=>{this.handlePasswordChange(e)}}  />
               <error-output className="password-error" htmlFor="error">{this.state.passwordError}</error-output>
-            </div>
+            
           </form>
         </div>
         <div className="footer">
