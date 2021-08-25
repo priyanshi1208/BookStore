@@ -11,7 +11,8 @@ class BookStoreHome extends React.Component{
         super(props);
         this.state = {
             bookData : [],
-            cartNumber:0
+            cartNumber:0,
+            permData:[]
         };
         this.bookservice = new BookService();
     }
@@ -28,7 +29,7 @@ class BookStoreHome extends React.Component{
         this.bookservice.getAllBooks()
         .then(responseDTO => {
             let books = responseDTO.data;
-            this.setState({bookData:books.data});
+            this.setState({bookData:books.data,permData:books.data});
         }).catch(error => {
             console.log("Error while Getting Data From Server");
         })
@@ -40,6 +41,7 @@ class BookStoreHome extends React.Component{
             <div>
                 <NavigationBar 
                 cartNumber = {this.state.cartNumber}
+                search = {(value) => this.searchBook(value)}
                 />
             </div>
                 <div>
@@ -54,6 +56,29 @@ class BookStoreHome extends React.Component{
             </>
         )
     }
-    
+
+searchBook(value) {
+    console.log(value)
+    if(value.length>3){
+        console.log(
+            this.state.bookData.filter(book=> {
+                return book.bookName.toLowerCase().includes(value.toLowerCase())
+            })
+        )
+        this.setState(
+            {
+                bookData:this.state.bookData.filter(book=> {
+                    return book.bookName.toLowerCase().includes(value.toLowerCase())
+                })
+            }
+        )
+
+    }
+    else if(value.length <= 3){
+        this.setState({
+            bookData:this.state.permData
+        })
+    }
+}
 }
 export default BookStoreHome
