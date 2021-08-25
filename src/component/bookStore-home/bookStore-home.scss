@@ -121,14 +121,15 @@
     background-color: #A03037;
     color:white;
     border-radius: 3px;
-    margin-right: 25px;
+    margin-right: 20px;
     padding: 7px 6px;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 12px;
     outline: none;
     cursor: pointer;
     border: none;
     text-transform: uppercase;
+    width: 50%;
       
 }
   .button-cart:focus{
@@ -140,9 +141,10 @@
     color:black;
     padding: 7px 6px;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 12px;
     background-color: #fff;
     border: solid black 1px;
     cursor: pointer;
     text-transform: uppercase;
+    width: 45%;
   }

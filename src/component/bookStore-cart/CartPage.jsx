@@ -10,17 +10,20 @@ function CartPage(props) {
                     </div>
                     {
                         JSON.parse(localStorage.getItem("cartDetails")).map((books) =>(
-                            <div className="details">
-                            <div className = "book-container">
-                                <img className="book-cover1" src = {books.imgsrc} alt="book-image"></img>
+                            <div className="cart-details">
+                                <div className="details">
+                                    <div className = "book-container">
+                                        <img className="book-cover1" src = {books.imgsrc} alt="book-image"></img>
+                                    </div>
+                                    <div className='book-info1'>
+                                        <h4 className='book-title'>{books.bookName}</h4>
+                                        <p className='author-name'>by {books.authorName}</p>
+                                        <h4>Rs. {books.price}</h4>
+                                    </div>
+                                </div>
+                                <div className="remove-btn" onClick={(e)=>props.remove(e)}>Remove</div>
                             </div>
-                             <div className='book-info1'>
-                                 <h4 className='book-title'>{books.bookName}</h4>
-                                 <p className='author-name'>by {books.authorName}</p>
-                                 <h4>Rs. {books.price}</h4>
-                                
-                             </div>
-                            </div>
+                            
                         ))
                     }
                 </div>
