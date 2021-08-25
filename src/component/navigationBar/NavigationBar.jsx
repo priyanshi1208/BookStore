@@ -54,7 +54,7 @@ function NavigationBar(props){
                 <img className="search-img" src={search} alt="search"></img>
                 <input type="text" className="search-input" placeholder="Search..."/>
             </div>
-            <p className="user-name" onClick={logout}>Hi! {userName}</p>
+            <p className="user-name" onClick={logout}> {userName}</p>
             <span className="logout-box">
                 <div className="logout">{logoutText}</div>
             </span>
