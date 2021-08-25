@@ -38,12 +38,23 @@
     display: flex;
    
 }
+.user-name{
+    height: 13px;
+    text-align: right;
+    font: normal normal normal 15px/13px Roboto;
+    letter-spacing: 0.45px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-top: 1.7%;
+    cursor: pointer;
+    width: 18.5%;
+  }
 
 .cart-nav{
     display: flex;
     flex-direction: row;
     margin-top: 13px;
-    margin-left: 2%;
+    margin-left: 0;
 }
 .cart-txt{
     width: 38%;
@@ -82,24 +93,14 @@
     font-size: 11px;
   }
 
-  .user-name{
-    height: 13px;
-    text-align: left;
-    font: normal normal normal 15px/13px Roboto;
-    letter-spacing: 0.45px;
-    color: #FFFFFF;
-    opacity: 1;
-    margin-top: 1.7%;
-    margin-left: 12%;
-    cursor: pointer;
-  }
+
 
 .navigation-bar:hover .logout-box {
     visibility: visible;
 }
 .navigation-bar .logout-box {
     visibility: hidden;
-    width: fit-content;
+    width: 4%;
     background-color: #A03037;
     color: white;
     text-align: center;

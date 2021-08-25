@@ -42,6 +42,8 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 6%;
+    width: 40%;
+    margin-left: 5%;
 }
 .book-cover1{
     width: 65px;
@@ -138,6 +140,15 @@ h6{
    align-items: flex-end;
    margin-bottom: 5%;
 
+}
+.cart-details{
+    display: flex;
+    flex-direction: row;
+}
+.remove-btn{
+    margin-top: 12%;
+    font-size: 12px;
+    cursor: pointer;
 }
 .place-order1{
     bottom: 20px;
