@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import StoreService from '../../service/StoreService';
+import userIcon from '../../images/user.png';
 
 function NavigationBar(props){  
 
@@ -54,10 +55,14 @@ function NavigationBar(props){
                 <img className="search-img" src={search} alt="search"></img>
                 <input type="text" className="search-input" placeholder="Search..."/>
             </div>
-            <p className="user-name" onClick={logout}> {userName}</p>
-            <span className="logout-box">
-                <div className="logout">{logoutText}</div>
-            </span>
+            <div className="user">
+                <img className="user-img" src={userIcon}></img>
+                <p className="user-name" onClick={logout}> {userName}</p>
+                <span className="logout-box">
+                    <div className="logout">{logoutText}</div>
+                </span>
+            </div>
+            
             <div className="cart-nav">
                 <p className="cart-txt">Cart</p>
                 <img className="cart-img" src={cart} alt="cart" onClick={handleCartClick} ></img>

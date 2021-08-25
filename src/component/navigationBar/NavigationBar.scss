@@ -45,16 +45,26 @@
     letter-spacing: 0.45px;
     color: #FFFFFF;
     opacity: 1;
-    margin-top: 1.7%;
     cursor: pointer;
-    width: 18.5%;
-  }
+    margin-left: 5%;
+}
+.user{
+    width: 21%;
+    display:flex;
+    flex-direction: row;
+    margin-top: 1.6%;
+    padding-left: 11%;
+}
+.user-img{
+    height:35%;
+    width: 9%;
+}
 
 .cart-nav{
     display: flex;
     flex-direction: row;
     margin-top: 13px;
-    margin-left: 0;
+    margin-left: 1%;
 }
 .cart-txt{
     width: 38%;
