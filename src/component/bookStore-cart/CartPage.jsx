@@ -1,6 +1,13 @@
 
 import './CartPage.scss';
 function CartPage(props) {
+    const remove=(booksId)=>{
+        let cartDetails=JSON.parse(localStorage.getItem('cartDetails'));
+        let newCart=cartDetails.filter((books)=>books.bookId!==booksId);
+        localStorage.setItem('cartDetails',JSON.stringify(newCart));
+        localStorage.setItem('number',newCart.length)
+        window.location.reload();
+    }
         return(
             <div className="main">
                 <div className="cart">
@@ -21,7 +28,7 @@ function CartPage(props) {
                                         <h4>Rs. {books.price}</h4>
                                     </div>
                                 </div>
-                                <div className="remove-btn" onClick={(e)=>props.remove(e)}>Remove</div>
+                                <div className="remove-btn" onClick={(e)=>remove(books.bookId)}>Remove</div>
                             </div>
                             
                         ))
