@@ -26,9 +26,10 @@ function CartPage(props) {
                                         <h4 className='book-title'>{books.bookName}</h4>
                                         <p className='author-name'>by {books.authorName}</p>
                                         <h4>Rs. {books.price}</h4>
+                                        <div className="remove-btn" onClick={(e)=>remove(books.bookId)}>Remove</div>
                                     </div>
                                 </div>
-                                <div className="remove-btn" onClick={(e)=>remove(books.bookId)}>Remove</div>
+                                
                             </div>
                             
                         ))

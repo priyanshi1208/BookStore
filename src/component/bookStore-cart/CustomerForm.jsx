@@ -169,7 +169,7 @@ class CustomerForm extends React.Component{
                             </div>
                             <div className="row">
                                 <TextField className="text-input" name="city" value={this.state.city} type="text" label="city/town" onChange={(e)=>{this.handleCityChange(e)}} variant='outlined' style={{ marginRight: '1.5%'}}/>
-                                <TextField className="text-input" name="landmark" value={this.state.landmark} type="text" label="Landmark" variant='outlined'onChange={(e)=>{this.handleLandmarkChange(e)}} />
+                                <TextField className="text-input1" name="landmark" value={this.state.landmark} type="text" label="Landmark" variant='outlined'onChange={(e)=>{this.handleLandmarkChange(e)}} />
                             </div>
                             <div className="radio-row">
                                 <label className="type-label">Type</label><br/>
