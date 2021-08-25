@@ -43,7 +43,7 @@ class CustomerForm extends React.Component{
         let nameRegex=RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$");
         if(!nameRegex.test(e.target.value)){
           this.setState({
-            textError:"Invalid Name Format",
+            textError:"Enter Valid Name e.g.:Abc abc",
             isError:true
           })
         }
@@ -60,7 +60,7 @@ class CustomerForm extends React.Component{
         let phoneNumberRegex=RegExp("[+]{0,1}[0-9]{1,}\\s{0,1}[1-9]{1}[0-9]{9}$");
         if(!phoneNumberRegex.test(e.target.value)){
           this.setState({
-            numberError:"Invalid Phone Number",
+            numberError:"Enter Valid Number e.g.:917263534327",
             isError:true
           })
         }
@@ -77,7 +77,7 @@ class CustomerForm extends React.Component{
         let pinCodeRegex=RegExp("^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$");
         if(!pinCodeRegex.test(e.target.value)){
           this.setState({
-            pinCodeError:"Invalid Pin Code",
+            pinCodeError:"Enter Valid Pincode e.g.:229067",
             isError:true
           })
         }
