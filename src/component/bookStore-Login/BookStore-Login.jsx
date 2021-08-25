@@ -1,11 +1,13 @@
 import React from "react";
 import loginImg from "../../images/login.svg";
-import './Login-Register.scss';
+import './Login.scss';
 import StoreService from "../../service/StoreService";
-
+import {TextField} from '@material-ui/core';
+import { Link } from "react-router-dom";
 class Login extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       email:'',
       password:'',
@@ -13,7 +15,13 @@ class Login extends React.Component {
       passwordError:'',
       isError:''
     }
+    this.textFieldStyle = {
+      height: '35px',
+      width:'300px',
+    }
   }
+
+  
 
   handleEmailChange = (e) => {
     this.setState({
@@ -22,7 +30,7 @@ class Login extends React.Component {
     let emailRegex=RegExp("^[A-Za-z0-9-\\+]+(\\.[A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
     if(!emailRegex.test(e.target.value)){
       this.setState({
-      emailError:"Invalid Email Format",
+      emailError:"Enter Valid Mail e.g.:abc124@example.com",
       isError:true
       })
     }
@@ -39,7 +47,7 @@ class Login extends React.Component {
     let passwordRegex=RegExp("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&*-+=()]).{8,}$");
     if(!passwordRegex.test(e.target.value)){
       this.setState({
-      passwordError:"Invalid Password",
+      passwordError:"Enter Valid Password e.g.:Abc123@cdf",
       isError:true
       })
     }
@@ -74,21 +82,25 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="base-container" ref={this.props.containerRef}>
+      <div className="bookStore-login">
+      <div className="login">
+        <div className="container">
+      <div className="base-container-login" ref={this.props.containerRef}>
         <div className="header">Login</div>
         <div className="content">
           <div className="image">
             <img src={loginImg} />
           </div>
           <div className="form">
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input type="text" name="email" onChange={(e)=>{this.handleEmailChange(e)}} placeholder="Email Address" required />
+            <div>
+              <br />
+              <TextField label='Email' variant='outlined' color='secondary' style={this.textFieldStyle} size="small" type="text" name="email" required="" onChange={(e)=>{this.handleEmailChange(e)}} />
+              <br />
               <error-output className="email-error" htmlFor="error">{this.state.emailError}</error-output>
             </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" onChange={(e) => {this.handlePasswordChange(e)}} placeholder="password" required />
+            <div>
+              <TextField label='Password' color='secondary' style={this.textFieldStyle} variant='outlined' size="small" type="password" name="password" onChange={(e) => {this.handlePasswordChange(e)}}/>
+              <br />
               <error-output className="password-error" htmlFor="error">{this.state.passwordError}</error-output>
             </div>
           </div>
@@ -97,7 +109,16 @@ class Login extends React.Component {
           <button type="button" onClick={(e) => {this.login(e)}} className="btn">
             Login
           </button>
+          <div className="or"> OR </div>
+          <Link to="/register"><button type="button" className="btn" >
+          Create A New User
+          </button>
+          </Link>
+        
         </div>
+      </div>
+      </div>
+      </div>
       </div>
     );
   }

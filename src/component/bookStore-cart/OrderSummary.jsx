@@ -3,26 +3,9 @@ import { useState,useEffect } from 'react';
 import StoreService from '../../service/StoreService';
 
 function OrderSummary(props){
-    const[imageURL,setImageURL] = useState('')
-    const[bookName,setBookName] = useState('')
-    const[bookPrice,setBookPrice] = useState('')
-    const[authorName,setAuthorName] = useState('') 
-    const[bookId,setBookId] = useState('')
     const[userId,setUserId] = useState('')
     const[totalAmount,setTotalAmount] = useState(0)
     useEffect(() => {
-        new StoreService().getBookById(localStorage.getItem("bookId"))
-        .then(responseDTO => {
-            let bookData = responseDTO.data;
-            setImageURL(bookData.data.imageURL)
-            setBookName(bookData.data.bookName)
-            setAuthorName(bookData.data.authorName);
-            setBookPrice(bookData.data.bookPrice)
-            setBookId(localStorage.getItem("bookId"))
-        }).catch(error => {
-            console.log("Error while retrieving Book Data",JSON.stringify(error));
-        })
-
         new StoreService().getUserById(localStorage.getItem("userId"))
         .then(responseDTO => {
             let responseData = responseDTO.data;
@@ -40,8 +23,13 @@ function OrderSummary(props){
     },[])
 
     const placeOrder = () => {
+        let bookIds = []
+        JSON.parse(localStorage.getItem("cartDetails")).map((books) => (
+            bookIds.push(books.bookId)
+        ))
+    
         let order = {
-            bookId:bookId,
+            bookId:bookIds,
             userId:userId
         }
         new StoreService().placeOrder(order)

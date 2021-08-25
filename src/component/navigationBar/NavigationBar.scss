@@ -8,6 +8,7 @@
     flex-direction: row;
     position: fixed; 
     top: 0;
+    z-index: 999;
 }
 .bookstore-nav{
     display: flex;
@@ -41,8 +42,8 @@
 .cart-nav{
     display: flex;
     flex-direction: row;
-    margin-left: 22%;
     margin-top: 13px;
+    margin-left: 2%;
 }
 .cart-txt{
     width: 38%;
@@ -89,7 +90,7 @@
     color: #FFFFFF;
     opacity: 1;
     margin-top: 1.7%;
-    margin-left: 2%;
+    margin-left: 12%;
     cursor: pointer;
   }
 
