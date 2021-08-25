@@ -23,10 +23,6 @@ class BookStoreCart extends React.Component{
     togglePanelSummary(e){
         this.setState({openSummary:!this.state.openSummary})
     }
-    remove(e){
-        let cartDetails=JSON.stringify(localStorage.getItem('cartDetails'));
-        window.alert(cartDetails)
-    }
     componentDidMount(){
         this.setState({cartNumber:localStorage.getItem("number")})
     }

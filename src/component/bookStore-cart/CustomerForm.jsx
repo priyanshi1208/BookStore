@@ -1,7 +1,6 @@
 import React from 'react';
 import '../bookStore-cart/CustomerForm.scss';
 import {TextField} from '@material-ui/core';
-import { TextareaAutosize } from '@material-ui/core';
 import StoreService from '../../service/StoreService';
 class CustomerForm extends React.Component{
     constructor(props){
@@ -23,7 +22,8 @@ class CustomerForm extends React.Component{
             pinCodeError:"",
             isError:'',
             isFilled:false,
-            setMessage:''
+            setMessage:'',
+            incompleteForm:false
         }
     }
     componentDidMount = () => {
@@ -108,6 +108,11 @@ class CustomerForm extends React.Component{
             isFilled:true
         })
     }
+    handleToggle =(e)=>{
+        if(this.state.incompleteForm){
+            this.props.togglePanelSummary(e);
+        }
+    }
 
     setCustomerForm = (customerData) => {
         this.setState({
@@ -123,7 +128,8 @@ class CustomerForm extends React.Component{
         event.preventDefault();
         console.log("save button clicked");
         if(this.state.isError ||  !this.state.isFilled){
-            this.setState({setMessage:"Please Fill Correct Values"})
+            this.setState({setMessage:"Please Fill Correct Values",
+                            incompleteForm:true})
         }else{
             let customerObject = {
                 userId:this.state.id,
@@ -143,6 +149,7 @@ class CustomerForm extends React.Component{
            }).catch(error => {
                console.log("Error While Updating User",JSON.stringify(error));
            })
+           this.setState({setMessage:""})
         }
     }
 
@@ -186,7 +193,7 @@ class CustomerForm extends React.Component{
                        </div>
             
                        <div className="button-input">
-                           <button onClick={(e)=>this.props.togglePanelSummary(e)}className="continue-button"type="submit">Continue</button>
+                           <button onClick={(e)=>this.handleToggle(e)}className="continue-button"type="submit">Continue</button>
                        </div>
                    </div>
                 </form> 
