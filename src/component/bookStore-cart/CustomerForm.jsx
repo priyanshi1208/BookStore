@@ -23,6 +23,7 @@ class CustomerForm extends React.Component{
             pinCodeError:"",
             isError:'',
             isFilled:false,
+            setMessage:''
         }
     }
     componentDidMount = () => {
@@ -122,7 +123,7 @@ class CustomerForm extends React.Component{
         event.preventDefault();
         console.log("save button clicked");
         if(this.state.isError ||  !this.state.isFilled){
-            window.alert("Please Fill correct values");
+            this.setState({setMessage:"Please Fill Correct Values"})
         }else{
             let customerObject = {
                 userId:this.state.id,
@@ -179,7 +180,11 @@ class CustomerForm extends React.Component{
                                 <input className="radio-input radio" name="radio" type="radio"></input>
                                 <label className="radio-label">Others</label>
                             </div>
+                            <div>
+                                <p className="register-error1">{this.state.setMessage}</p>
+                            </div>
                        </div>
+            
                        <div className="button-input">
                            <button onClick={(e)=>this.props.togglePanelSummary(e)}className="continue-button"type="submit">Continue</button>
                        </div>

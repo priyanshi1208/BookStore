@@ -4,6 +4,7 @@ import './Register.scss';
 import StoreService from "../../service/StoreService";
 import { TextField } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { useAlert } from 'react-alert'
 
 
 class Register extends React.Component {
@@ -19,7 +20,8 @@ class Register extends React.Component {
       textError:"",
       numberError:"",
       emailError:"",
-      passwordError:""
+      passwordError:"",
+      setMessage:''
   }
 
   this.textFieldStyle = {
@@ -91,10 +93,11 @@ class Register extends React.Component {
       errorMessage:false});
     }
   }
+
   save=async(e)=>{
     e.preventDefault();
     if(this.state.errorMessage===true){
-        window.alert("Please enter valid data");
+        this.setState({setMessage:"Please Enter Valid Details"})
     }
     else{
       let userObject={
@@ -106,7 +109,6 @@ class Register extends React.Component {
       new StoreService().addUser(userObject)
       .then(response=>{
       console.log("Data Added Successfully"+JSON.stringify(response.data));
-      window.alert("User Registered Successfully");
       window.location.replace('/login')
       })
       .catch(error=>{
@@ -151,10 +153,14 @@ class Register extends React.Component {
           </button>
           </Link>
         </div>
+        <div>
+          <p className="register-error">{this.state.setMessage}</p>
+        </div>
       </div>
       </div>
       </div>
       </div>
+      
     );
   }
 }

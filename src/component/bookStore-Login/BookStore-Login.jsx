@@ -13,7 +13,8 @@ class Login extends React.Component {
       password:'',
       emailError:'',
       passwordError:'',
-      isError:''
+      isError:'',
+      setMessage:''
     }
     this.textFieldStyle = {
       height: '35px',
@@ -59,7 +60,7 @@ class Login extends React.Component {
 
   login = (e) => {
     if(this.state.isError===true){
-      window.alert("Please enter valid data");
+      this.setState({setMessage:"Please Enter Valid Details"})
   }
   else{
     let userDetails={
@@ -74,7 +75,7 @@ class Login extends React.Component {
       window.location.replace('/');
     })
     .catch(error=>{
-    window.alert("User Does Not Exist");
+    this.setState({setMessage:"User Does Not Exist"})
     console.log("Error While Login"+JSON.stringify(error));
     })
   }
@@ -104,6 +105,9 @@ class Login extends React.Component {
               <error-output className="password-error" htmlFor="error">{this.state.passwordError}</error-output>
             </div>
           </div>
+          <div>
+          <p className="register-error">{this.state.setMessage}</p>
+        </div>
         </div>
         <div className="footer">
           <button type="button" onClick={(e) => {this.login(e)}} className="btn">
